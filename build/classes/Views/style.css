@@ -1,0 +1,95 @@
+/* Fichier : style.css */
+
+.root {
+    -fx-background-color: #ffffff;
+    -fx-font-family: 'Segoe UI', Arial;
+    -fx-padding: 30px;
+}
+
+/* Header */
+.header {
+    -fx-spacing: 15px;
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 25px 0;
+}
+
+.logo {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+}
+
+.app-title {
+    -fx-fill: #2c3e50;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+/* Conteneur de connexion */
+.login-container {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 25px;
+    -fx-spacing: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 0);
+}
+
+.login-title {
+    -fx-text-fill: #34495e;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 10px 0;
+}
+
+/* Champs de formulaire */
+.text-field,
+.password-field {
+    -fx-pref-width: 250px;
+    -fx-pref-height: 35px;
+    -fx-background-radius: 4px;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 4px;
+}
+
+.radio-container {
+    -fx-spacing: 25px;
+    -fx-padding: 10px 0;
+}
+
+.radio-button {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 14px;
+}
+
+.radio-button:selected {
+    -fx-text-fill: #2980b9;
+}
+
+/* Bouton de connexion */
+.login-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-pref-width: 120px;
+    -fx-pref-height: 35px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.login-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Liens de création de compte */
+.account-links {
+    -fx-spacing: 30px;
+    -fx-padding: 20px 0 0 0;
+}
+
+.hyperlink {
+    -fx-text-fill: #3498db;
+    -fx-underline: false;
+    -fx-font-size: 14px;
+}
+
+.hyperlink:hover {
+    -fx-underline: true;
+}

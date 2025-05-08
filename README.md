@@ -94,22 +94,6 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
 
 ---
 
-## 📦 Structure du Projet
-
-MiniProject/
-├── src/
-│ ├── model/
-│ │ ├── Patient.java
-│ │ └── Traitement.java
-│ ├── database/
-│ │ └── Database.java
-│ ├── view/
-│ │ └── MainView.java
-│ └── MedicalTreatmentApp.java
-└── resources/
-
----
-
 ## ✅ Fonctionnalités Incluses
 
 - Gestion CRUD des patients et traitements
@@ -134,3 +118,39 @@ MiniProject/
 
 Projet réalisé dans le cadre du module Javafx
 Encadré par : Mme OUADI Hayat
+
+## 📦 Structure du Projet
+
+Hospit/
+├── src/
+│   ├── controller/                           <-- Contrôleurs JavaFX (gestion des actions)
+│   │   ├── PatientController.java
+│   │   ├── TraitementController.java
+│   │   └── LoginController.java
+│
+│   ├── model/                                <-- Modèles (données et logique métier)
+│   │   ├── Patient.java
+│   │   ├── Doctor.java
+│   │   ├── Traitement.java
+│   │   └── TestMedical.java
+│
+│   ├── view/                                 <-- FXML (interfaces JavaFX)
+│   │   ├── login_view.fxml
+│   │   ├── dashboard_view.fxml
+│   │   ├── patient_form.fxml
+│   │   ├── traitement_form.fxml
+│   │   └── test_result_view.fxml
+│
+│   ├── database/                             <-- Connexion et requêtes SQL
+│   │   └── Database.java
+│
+│   ├── util/                                 <-- Classes utilitaires (validations, helpers)
+│   │   └── Validator.java
+│
+│   └── Main.java                             <-- Point d’entrée de l’application
+│
+├── resources/                                <-- Fichiers CSS, images, icônes
+│   ├── style.css
+│   └── logo.png
+│
+└── README.md                                 <-- Description du projet
