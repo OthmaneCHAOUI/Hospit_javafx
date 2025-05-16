@@ -9,6 +9,7 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
 ## 👤 Utilisateurs
 
 ### 1. Docteur
+
 - Ajouter, modifier et supprimer des patients
 - Créer, modifier et supprimer des traitements
 - Visualiser l’historique médical des patients
@@ -16,6 +17,7 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
 - Supprimer un patient (et toutes ses données associées)
 
 ### 2. Patient
+
 - Se connecter à son espace personnel
 - Consulter ses traitements en cours ou passés
 - Voir ses résultats de tests médicaux
@@ -27,6 +29,7 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
 ### 👨‍⚕️ Docteur
 
 #### Fonctionnalité : Ajout d’un patient
+
 - **Objectif** : Ajouter un nouveau patient dans la base.
 - **Règles de gestion** :
   1. Le champ Nom est obligatoire.
@@ -35,12 +38,14 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
   4. Le mot de passe initial doit contenir au moins 8 caractères.
 
 #### Fonctionnalité : Consultation de la fiche d’un patient
+
 - **Objectif** : Visualiser les informations médicales du patient.
 - **Règles de gestion** :
   - Accessible uniquement pour les docteurs connectés.
   - Affichage en lecture seule sauf en mode édition.
 
 #### Fonctionnalité : Ajout d’un traitement médical
+
 - **Objectif** : Prescrire un traitement à un patient.
 - **Règles de gestion** :
   - Nom du médicament obligatoire.
@@ -48,12 +53,14 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
   - Date de début automatiquement définie à aujourd’hui.
 
 #### Fonctionnalité : Enregistrement d’un test médical
+
 - **Objectif** : Ajouter un résultat de test/examen.
 - **Règles de gestion** :
   - Type de test et date sont obligatoires.
   - Résultat sous forme de texte ou fichier joint.
 
 #### Fonctionnalité : Suppression d’un patient
+
 - **Objectif** : Supprimer un patient ainsi que ses données.
 - **Règles de gestion** :
   - Confirmation requise avant suppression.
@@ -65,6 +72,7 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
 ### 🧑‍⚕️ Patient
 
 #### Fonctionnalité : Connexion à l’espace personnel
+
 - **Objectif** : Accéder à ses données personnelles.
 - **Règles de gestion** :
   - Authentification par CNI et mot de passe.
@@ -72,12 +80,14 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
   - Fonction de réinitialisation disponible.
 
 #### Fonctionnalité : Consultation des traitements
+
 - **Objectif** : Voir les traitements prescrits.
 - **Règles de gestion** :
   - Accès en lecture seule.
   - Affichage chronologique.
 
 #### Fonctionnalité : Consultation des résultats de tests
+
 - **Objectif** : Voir les résultats des examens médicaux.
 - **Règles de gestion** :
   - Accès uniquement à ses propres résultats.
@@ -123,34 +133,56 @@ Encadré par : Mme OUADI Hayat
 
 Hospit/
 ├── src/
-│   ├── controller/                           <-- Contrôleurs JavaFX (gestion des actions)
+│   ├── model/                         # Couche Modèle
+│   │   ├── entity/                   # Entités (classes représentant les tables)
+│   │   │   ├── Patient.java
+│   │   │   ├── Doctor.java
+│   │   │   ├── Medicament.java
+│   │   │   ├── RendezVous.java
+│   │   │   └── TestMedical.java
+│   │   │
+│   │   ├── dao/                      # DAO (accès base de données)
+│   │   │   ├── PatientDAO.java
+│   │   │   ├── DoctorDAO.java
+│   │   │   ├── MedicamentDAO.java
+│   │   │   ├── RendezVousDAO.java
+│   │   │   └── TestMedicalDAO.java
+│   │   │
+│   │   └── database/                 # Connexion DB
+│   │       └── Database.java
+│
+│   ├── controller/                   # Contrôleurs (logique interface)
+│   │   ├── LoginController.java
 │   │   ├── PatientController.java
-│   │   ├── TraitementController.java
-│   │   └── LoginController.java
+│   │   ├── DoctorController.java
+│   │   ├── MedicamentController.java
+│   │   ├── RendezVousController.java
+│   │   └── TestMedicalController.java
 │
-│   ├── model/                                <-- Modèles (données et logique métier)
-│   │   ├── Patient.java
-│   │   ├── Doctor.java
-│   │   ├── Traitement.java
-│   │   └── TestMedical.java
-│
-│   ├── view/                                 <-- FXML (interfaces JavaFX)
+│   ├── view/                         # Fichiers FXML (vues)
 │   │   ├── login_view.fxml
 │   │   ├── dashboard_view.fxml
 │   │   ├── patient_form.fxml
-│   │   ├── traitement_form.fxml
-│   │   └── test_result_view.fxml
+│   │   ├── doctor_form.fxml
+│   │   ├── medicament_form.fxml
+│   │   ├── rendezvous_form.fxml
+│   │   └── testmedical_form.fxml
 │
-│   ├── database/                             <-- Connexion et requêtes SQL
-│   │   └── Database.java
-│
-│   ├── util/                                 <-- Classes utilitaires (validations, helpers)
-│   │   └── Validator.java
-│
-│   └── Main.java                             <-- Point d’entrée de l’application
-│
-├── resources/                                <-- Fichiers CSS, images, icônes
-│   ├── style.css
-│   └── logo.png
-│
-└── README.md                                 <-- Description du projet
+│   ├── util/                         # Outils utilitaires
+│   │   ├── Validator.java
+│   │   └── PasswordHasher.java
+│   └── Main.java                     # Point d’entrée JavaFX (extends Application)
+
+├── resources/                        # Fichiers externes (style, icônes, etc.)
+│   ├── css/
+│   │   └── style.css
+│   ├── images/
+│   │   └── logo.png
+│   └── data/
+│       └── init.sql                  # Script de création de la base (facultatif)
+
+├── database/                         # SQLite DB ou dossier de backup
+│   └── hospit.db
+
+├── README.md                         # Présentation du projet
+└── .gitignore                        # (facultatif)

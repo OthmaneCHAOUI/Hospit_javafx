@@ -9,7 +9,7 @@ public class Doctor {
     private String nomCabinet;
     private String telephone;
     private String adresseCabinet;
-    private String numeroInscription;
+    // private String numeroInscription;
     private String motDePasse;
 
     public Doctor() {}

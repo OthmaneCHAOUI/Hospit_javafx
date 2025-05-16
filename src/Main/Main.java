@@ -15,14 +15,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Charger le fichier FXML et configure la scène
-        Parent root = FXMLLoader.load(getClass().getResource("/Views/Connection.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Views/login_view.fxml"));
 
         // titre et taille de fenetre
         primaryStage.setTitle("Hospit"); // Titre de la fenêtre
         Scene scene = new Scene(root, 400, 400);
 
         // associe le style CSS
-        scene.getStylesheets().add(getClass().getResource("/Views/style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/Style/style.css").toExternalForm());
 
         // assocue la scene
         primaryStage.setScene(scene);
