@@ -1,6 +1,6 @@
-package model.dao;
+package models;
 
-import model.entity.Patient;
+import models.Patient;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,7 +80,8 @@ public class PatientDAO {
                     rs.getString("nom"),
                     rs.getString("prenom"),
                     rs.getString("cnie"),
-                    rs.getString("mot_de_passe")
+                    rs.getString("mot_de_passe"),
+                    rs.getDate("date_naissance").toLocalDate()
                 );
             }
         } catch (SQLException e) {

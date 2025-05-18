@@ -1,0 +1,72 @@
+/* header */
+#header {
+    -fx-background-color: #34db5e;
+}
+
+.logo {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+    -fx-padding: 200px;
+}
+
+.app-name {
+    -fx-fill: #2c3e50;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* formulaire */
+.text-field, .password-field {
+    -fx-pref-width: 250px;
+    -fx-pref-height: 35px;
+    -fx-margin-top: 20px;
+    -fx-background-radius: 4px;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 4px;
+}
+
+.radio-container {
+    -fx-spacing: 25px;
+    -fx-padding: 10px 0;
+}
+
+.radio-button {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.radio-button:selected {
+    -fx-text-fill: #2980b9;
+}
+
+/* Bouton de connexion */
+.login-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-pref-width: 120px;
+    -fx-pref-height: 35px;
+    /* -fx-background-radius: 4px; */
+    -fx-cursor: hand;
+    -fx-alignment: center;
+}
+
+.login-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Liens de création de compte */
+.account-links {
+    -fx-spacing: 30px;
+    -fx-padding: 20px 0 0 0;
+}
+
+.hyperlink {
+    -fx-text-fill: #3498db;
+    -fx-underline: false;
+    -fx-font-size: 14px;
+}
+
+.hyperlink:hover {
+    -fx-underline: true;
+}

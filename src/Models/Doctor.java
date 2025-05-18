@@ -23,7 +23,7 @@ public class Doctor {
         this.nomCabinet = nomCabinet;
         this.telephone = telephone;
         this.adresseCabinet = adresseCabinet;
-        this.numeroInscription = numeroInscription;
+        // this.numeroInscription = numeroInscription;
         this.motDePasse = motDePasse;
     }
 
@@ -43,8 +43,8 @@ public class Doctor {
     public void setTelephone(String telephone) { this.telephone = telephone; }
     public String getAdresseCabinet() { return adresseCabinet; }
     public void setAdresseCabinet(String adresseCabinet) { this.adresseCabinet = adresseCabinet; }
-    public String getNumeroInscription() { return numeroInscription; }
-    public void setNumeroInscription(String numeroInscription) { this.numeroInscription = numeroInscription; }
+    // public String getNumeroInscription() { return numeroInscription; }
+    // public void setNumeroInscription(String numeroInscription) { this.numeroInscription = numeroInscription; }
     public String getMotDePasse() { return motDePasse; }
     public void setMotDePasse(String motDePasse) { this.motDePasse = motDePasse; }
 }
