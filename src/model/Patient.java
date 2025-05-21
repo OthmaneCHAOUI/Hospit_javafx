@@ -1,4 +1,4 @@
-package models;
+package model;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -12,6 +12,14 @@ public class Patient {
 
     public Patient(int id, String nom, String prenom, String cnie, String motDePasse, LocalDate dateNaissance) {
         this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.cnie = cnie;
+        this.motDePasse = motDePasse;
+        this.dateNaissance = dateNaissance;
+    }
+
+    public Patient(String nom, String prenom, String cnie, String motDePasse, LocalDate dateNaissance) {
         this.nom = nom;
         this.prenom = prenom;
         this.cnie = cnie;

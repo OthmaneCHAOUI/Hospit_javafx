@@ -1,7 +1,6 @@
 package main;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,11 +14,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Charger le fichier FXML et configure la scène
-        Parent root = FXMLLoader.load(getClass().getResource("/Views/patient_form.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/patient_form.fxml"));
 
         // titre et taille de fenetre
         primaryStage.setTitle("Hospit"); // Titre de la fenêtre
-        Scene scene = new Scene(root, 400, 400);
+        Scene scene = new Scene(root, 1000, 400);
 
         // associe le style CSS
         // scene.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());

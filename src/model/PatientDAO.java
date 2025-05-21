@@ -1,6 +1,6 @@
-package models;
+package model;
 
-import models.Patient;
+// import model.Patient;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
