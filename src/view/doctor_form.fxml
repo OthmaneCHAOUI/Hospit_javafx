@@ -32,9 +32,9 @@
       <RowConstraints maxHeight="160.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <AnchorPane maxHeight="80.0" maxWidth="500.0" minHeight="60.0" minWidth="250.0" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" stylesheets="@styles/formDoctor.css" GridPane.hgrow="SOMETIMES">
+      <AnchorPane maxHeight="80.0" maxWidth="500.0" minHeight="60.0" minWidth="250.0" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.hgrow="SOMETIMES">
          <children>
-            <Button fx:id="btn_retour" layoutX="37.0" layoutY="14.0" mnemonicParsing="false" onAction="#ButtonRetour" prefHeight="37.0" prefWidth="87.0" stylesheets="@styles/formDoctor.css" text="Retour">
+            <Button fx:id="btn_retour" layoutX="37.0" layoutY="14.0" mnemonicParsing="false" onAction="#ButtonRetour" prefHeight="37.0" prefWidth="87.0" text="Retour">
                <styleClass>
                   <String fx:value="btn" />
                   <String fx:value="btn_retour" />
@@ -45,7 +45,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="390.0" minWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="390.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" stylesheets="@styles/formDoctor.css" GridPane.rowIndex="1">
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="390.0" minWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="390.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="1">
          <children>
             <VBox alignment="TOP_CENTER" layoutY="-39.2" maxHeight="800.0" maxWidth="450.0" minWidth="250.0" prefHeight="430.0" prefWidth="250.0" spacing="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -54,7 +54,7 @@
                         <Rectangle2D />
                      </viewport>
                      <image>
-                        <Image url="@resources/AppIcon.png" />
+                        <Image url="@../resources/AppIcon.png" />
                      </image>
                      <VBox.margin>
                         <Insets top="72.0" />
@@ -95,9 +95,9 @@
          </GridPane.margin>
       </AnchorPane>
       <AnchorPane maxHeight="160.0" maxWidth="500.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="2" />
-      <AnchorPane maxHeight="80.0" maxWidth="1.7976931348623157E308" minHeight="60.0" minWidth="650.0" prefHeight="60.0" prefWidth="650.0" stylesheets="@styles/formDoctor.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <AnchorPane maxHeight="80.0" maxWidth="1.7976931348623157E308" minHeight="60.0" minWidth="650.0" prefHeight="60.0" prefWidth="650.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <HBox alignment="BOTTOM_CENTER" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="650.0" stylesheets="@styles/formDoctor.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="BOTTOM_CENTER" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Text fill="#5d9b63" strokeType="OUTSIDE" strokeWidth="0.0" text="Creation du compte doctor" textAlignment="CENTER" wrappingWidth="651.2334289550781" HBox.hgrow="ALWAYS">
                      <font>
@@ -111,7 +111,7 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="390.0" minWidth="650.0" prefHeight="390.0" prefWidth="650.0" stylesheets="@styles/formDoctor.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="390.0" minWidth="650.0" prefHeight="390.0" prefWidth="650.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
          <children>
             <Label fx:id="label_error_reussi" alignment="CENTER" maxWidth="1.7976931348623157E308" minWidth="650.0" opacity="0.0" prefHeight="18.0" prefWidth="650.0" text="Erreur lors de la création du compte. Veuillez réessayer." textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
@@ -149,7 +149,7 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane maxHeight="160.0" maxWidth="1.7976931348623157E308" minHeight="100.0" minWidth="650.0" prefHeight="100.0" prefWidth="650.0" stylesheets="@styles/formDoctor.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+      <AnchorPane maxHeight="160.0" maxWidth="1.7976931348623157E308" minHeight="100.0" minWidth="650.0" prefHeight="100.0" prefWidth="650.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>

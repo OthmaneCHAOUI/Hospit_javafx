@@ -17,11 +17,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/view/login_view.fxml"));
 
         // titre et taille de fenetre
-        primaryStage.setTitle("Hospit"); // Titre de la fenêtre
+        primaryStage.setTitle("Hospit");
         Scene scene = new Scene(root);
-
-        // associe le style CSS
-        // scene.getStylesheets().add(getClass().getResource("/Styles/style.css").toExternalForm());
 
         // associe la scene
         primaryStage.setScene(scene);

@@ -2,13 +2,13 @@
     -fx-border-color: white;
     -fx-border-width: 3px;
     -fx-border-radius: 10px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0.6, 0, 3);
+    /* -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0.6, 0, 3); */
 }
 
 .label-title {
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
-    -fx-effect: dropshadow(gaussian, bleu, 8, 0.6, 0, 3);
+    /* -fx-effect: dropshadow(gaussian, bleu, 8, 0.6, 0, 3); */
 }
 
 AnchorPane {
@@ -42,7 +42,7 @@ AnchorPane {
     /* Texte en gras */
     -fx-cursor: hand;
     /* Curseur en main au survol */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0.6, 0, 2);
+    /* -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0.6, 0, 2); */
     -fx-padding: 10 20 10 20;
 }
 
@@ -53,7 +53,7 @@ AnchorPane {
     -fx-scale-x: 1.01;
     /* Zoom léger */
     -fx-scale-y: 1.01;
-    -fx-effect: dropshadow(gaussian, #5d9b63, 5, 0.2, 1.5, 1.2);
+    /* -fx-effect: dropshadow(gaussian, #5d9b63, 5, 0.2, 1.5, 1.2); */
 }
 
 .btn_retour {
@@ -69,7 +69,7 @@ AnchorPane {
     /* Texte en gras */
     -fx-cursor: hand;
     /* Curseur en main au survol */
-    -fx-effect: dropshadow(gaussian, #eeeeee, 2, 0.2, 1.8, 0);
+    /* -fx-effect: dropshadow(gaussian, #eeeeee, 2, 0.2, 1.8, 0); */
 }
 
 .btn_retour:hover {
@@ -79,6 +79,6 @@ AnchorPane {
     -fx-scale-x: 1.01;
     /* Zoom léger */
     -fx-scale-y: 1.01;
-    -fx-effect: dropshadow(gaussian, #000000, 5, 0.2, 1.5, 1.2);
+    /* -fx-effect: dropshadow(gaussian, #000000, 5, 0.2, 1.5, 1.2); */
     -fx-border-color: #eeeeee;
 }
