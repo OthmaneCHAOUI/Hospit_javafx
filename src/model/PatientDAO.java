@@ -1,6 +1,5 @@
 package model;
 
-// import model.Patient;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,29 +18,6 @@ public class PatientDAO {
         }
     }
 
-    public List<Patient> getAllPatients() {
-        List<Patient> patients = new ArrayList<>();
-        try {
-            String query = "SELECT * FROM Patient";
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            while (rs.next()) {
-                Patient patient = new Patient(
-                    rs.getInt("id"),
-                    rs.getString("nom"),
-                    rs.getString("prenom"),
-                    rs.getString("cnie"),
-                    rs.getString("mot_de_passe"),
-                    rs.getDate("date_naissance").toLocalDate()
-                );
-                patients.add(patient);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return patients;
-    }
-
     public void addPatient(Patient patient) {
         try {
             String query = "INSERT INTO Patient (nom, prenom, cnie, mot_de_passe, date_naissance) VALUES (?, ?, ?, ?, ?)";
@@ -51,17 +27,6 @@ public class PatientDAO {
             pstmt.setString(3, patient.getCnie());
             pstmt.setString(4, patient.getMotDePasse());
             pstmt.setDate(5, Date.valueOf(patient.getDateNaissance()));
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void deleteByCnie(String cnie) {
-        try {
-            String query = "DELETE FROM Patient WHERE cnie = ?";
-            PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setString(1, cnie);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -89,4 +54,65 @@ public class PatientDAO {
         }
         return null;
     }
+
+    public static Patient checkPatientByCniePassword(String cnie,String password) throws SQLException{
+        String sql = "SELECT * FROM patient WHERE cnie = ? AND mot_de_passe = ? ";
+        Patient patient = null;
+        
+        try(Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)){
+            
+            stmt.setString(1, cnie);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()){
+               patient = new Patient();
+               patient.setId(rs.getInt("id")); // Si tu as un champ ID
+               patient.setNom(rs.getString("nom"));
+               patient.setPrenom(rs.getString("prenom"));
+               patient.setCnie(rs.getString("cnie"));
+               patient.setMotDePasse(rs.getString("mot_de_passe"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return patient ;
+    }
+
+    /*
+    public List<Patient> getAllPatients() {
+        List<Patient> patients = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM Patient";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                Patient patient = new Patient(
+                    rs.getInt("id"),
+                    rs.getString("nom"),
+                    rs.getString("prenom"),
+                    rs.getString("cnie"),
+                    rs.getString("mot_de_passe"),
+                    rs.getDate("date_naissance").toLocalDate()
+                );
+                patients.add(patient);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return patients;
+    }
+
+    public void deleteByCnie(String cnie) {
+        try {
+            String query = "DELETE FROM Patient WHERE cnie = ?";
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, cnie);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    */
 }

@@ -1,146 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../style/formDoctor.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DoctorFormController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="250.0" prefWidth="250.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="650.0" prefWidth="650.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="80.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="390.0" prefHeight="390.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="160.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <VBox layoutX="238.0" layoutY="29.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane maxHeight="80.0" maxWidth="500.0" minHeight="60.0" minWidth="250.0" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" stylesheets="@styles/formDoctor.css" GridPane.hgrow="SOMETIMES">
          <children>
-            <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="41.0" prefWidth="720.0">
+            <Button fx:id="btn_retour" layoutX="37.0" layoutY="14.0" mnemonicParsing="false" onAction="#ButtonRetour" prefHeight="37.0" prefWidth="87.0" stylesheets="@styles/formDoctor.css" text="Retour">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn_retour" />
+               </styleClass>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="390.0" minWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="390.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" stylesheets="@styles/formDoctor.css" GridPane.rowIndex="1">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutY="-39.2" maxHeight="800.0" maxWidth="450.0" minWidth="250.0" prefHeight="430.0" prefWidth="250.0" spacing="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="752.0" style="-fx-background-color: #9ef01a;" text="Creer Compte Médcin">
+                  <ImageView fitHeight="140.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-bordered">
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                     <image>
+                        <Image url="@resources/AppIcon.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets top="72.0" />
+                     </VBox.margin>
+                     <effect>
+                        <Shadow height="0.0" radius="31.655" width="128.62" />
+                     </effect>
+                  </ImageView>
+                  <Text lineSpacing="20.0" opacity="0.85" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-title" text="HOSPIT" textAlignment="CENTER">
                      <font>
-                        <Font name="Arial Black" size="22.0" />
+                        <Font name="Sitka Banner Bold" size="40.0" />
                      </font>
-                  </Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="36.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Resources/AppIcon.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="41.0" prefWidth="112.0" text="Hospit">
-                           <font>
-                              <Font name="Arial Bold" size="17.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
+                     <fill>
+                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.4526315927505493" green="0.11734892427921295" blue="0.11734892427921295" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.07290448248386383" green="0.0941130593419075" blue="0.17894737422466278" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </RadialGradient>
+                     </fill>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Text>
                </children>
-            </StackPane>
-            <StackPane prefHeight="81.0" prefWidth="752.0">
+            </VBox>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </AnchorPane>
+      <AnchorPane maxHeight="160.0" maxWidth="500.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="2" />
+      <AnchorPane maxHeight="80.0" maxWidth="1.7976931348623157E308" minHeight="60.0" minWidth="650.0" prefHeight="60.0" prefWidth="650.0" stylesheets="@styles/formDoctor.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="BOTTOM_CENTER" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="650.0" stylesheets="@styles/formDoctor.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="53.0" prefWidth="752.0" text="Label" />
-               </children>
-            </StackPane>
-            <HBox alignment="CENTER" prefHeight="138.0" prefWidth="752.0">
-               <children>
-                  <StackPane alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="358.0">
-                     <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Nom">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-                  <StackPane alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="358.0">
-                     <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Nom de Cabinet">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="51.0" prefHeight="68.0" prefWidth="752.0">
-               <children>
-                  <StackPane alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="358.0">
-                     <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Prenom">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-                  <StackPane alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="358.0">
-                     <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Adress Cabinet">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="189.0" prefHeight="66.0" prefWidth="752.0">
-               <children>
-                  <StackPane alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="358.0">
-                     <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="CNIE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-                  <StackPane alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="358.0">
-                     <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Télephone">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="257.0" prefHeight="66.0" prefWidth="752.0">
-               <children>
-                  <StackPane alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="358.0">
-                     <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Spécialité">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-                  <StackPane alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="358.0">
-                     <children>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Mot de Pass">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-               </children>
-            </HBox>
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="134.0" style="-fx-background-color: #9ef01a;" text="Creer">
+                  <Text fill="#5d9b63" strokeType="OUTSIDE" strokeWidth="0.0" text="Creation du compte doctor" textAlignment="CENTER" wrappingWidth="651.2334289550781" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font name="Arial Black" size="20.0" />
+                        <Font name="System Bold" size="37.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="390.0" minWidth="650.0" prefHeight="390.0" prefWidth="650.0" stylesheets="@styles/formDoctor.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+         <children>
+            <Label fx:id="label_error_reussi" alignment="CENTER" maxWidth="1.7976931348623157E308" minWidth="650.0" opacity="0.0" prefHeight="18.0" prefWidth="650.0" text="Erreur lors de la création du compte. Veuillez réessayer." textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <padding>
+                  <Insets top="21.0" />
+               </padding>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="30.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextField fx:id="f_nom" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Nom" style="-fx-prompt-text-fill: #df6c6c;" styleClass="field" />
+                        <TextField fx:id="f_prenom" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Prenom" style="-fx-prompt-text-fill: #df6c6c;" styleClass="field" />
+                        <TextField fx:id="f_cnie" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="CNIE" style="-fx-prompt-text-fill: #df6c6c;" styleClass="field" />
+                        <TextField fx:id="f_specialite" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Spécialité" style="-fx-prompt-text-fill: #df6c6c;" styleClass="field" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="30.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextField fx:id="f_nom_cabinet" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Nom de cabinet" style="-fx-prompt-text-fill: #df6c6c;" styleClass="field" />
+                        <TextField fx:id="f_addresse" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Adresse de cabinet" styleClass="field" />
+                        <TextField fx:id="f_telephone" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Téléphone" styleClass="field" />
+                        <TextField fx:id="f_motdepass" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Mot de passe" style="-fx-prompt-text-fill: #df6c6c;" styleClass="field" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="160.0" maxWidth="1.7976931348623157E308" minHeight="100.0" minWidth="650.0" prefHeight="100.0" prefWidth="650.0" stylesheets="@styles/formDoctor.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+         <children>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="btn_cree" mnemonicParsing="false" onAction="#ButtonCree" prefHeight="41.0" prefWidth="152.0" styleClass="btn" text="Cree Compte" textFill="#3291f0cf">
+                     <font>
+                        <Font name="Yu Gothic UI Semibold" size="12.0" />
                      </font>
                   </Button>
                </children>
-            </StackPane>
+            </HBox>
          </children>
-      </VBox>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</GridPane>

@@ -1,0 +1,67 @@
+.main_color {
+    -fx-background-color: #5d9b63;
+}
+
+.field {
+    -fx-background-color: transparent;
+    -fx-border-color: #5d9b63;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.field-error {
+    -fx-border-color: red;
+}
+
+.btn {
+    -fx-background-color: #5d9b63;
+    -fx-background-radius: 100px;
+    -fx-text-fill: white;
+    /* Couleur du texte */
+    -fx-font-family: "Arial";
+    /* Police */
+    -fx-font-size: 16px;
+    /* Taille du texte */
+    -fx-font-weight: bold;
+    /* Texte en gras */
+    -fx-cursor: hand;
+    /* Curseur en main au survol */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0.6, 0, 2);
+    -fx-padding: 10 20 10 20;
+}
+
+.btn:hover {
+    -fx-background-color: #eeeeee;
+    -fx-text-fill: #5d9b63;
+    /* Couleur du texte au hover */
+    -fx-scale-x: 1.01;
+    /* Zoom léger */
+    -fx-scale-y: 1.01;
+    -fx-effect: dropshadow(gaussian, #5d9b63, 5, 0.2, 1.5, 1.2);
+}
+
+.image-view-bordered {
+    -fx-border-color: white;
+    -fx-border-width: 3px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0.6, 0, 3);
+}
+
+.label-title {
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-effect: dropshadow(gaussian, bleu, 8, 0.6, 0, 3);
+}
+
+
+.rdbutton .radio {
+    -fx-background-color: transparent;
+    -fx-border-color: #5d9b63;
+    -fx-border-radius: 50%;
+    -fx-border-width: 2px;
+    -fx-padding: 3;
+}
+
+.rdbutton:selected .radio {
+    -fx-border-color: #4a592d;
+}

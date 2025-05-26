@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PatientFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PatientFormController">
    <children>
       <VBox layoutX="61.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -40,6 +40,11 @@
                   </HBox>
                </children>
             </StackPane>
+            <ImageView fitHeight="42.0" fitWidth="36.0" onMouseClicked="#goToLoginView" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/211618_c_left_arrow_icon.png" />
+               </image>
+            </ImageView>
             <HBox alignment="BOTTOM_CENTER" prefHeight="193.0" prefWidth="600.0" spacing="50.0">
                <children>
                   <StackPane alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="201.0" prefWidth="198.0">

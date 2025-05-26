@@ -1,7 +1,14 @@
 package controller;
 
+import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXML;
+import java.io.IOException;
 import javafx.scene.control.*;
+import javafx.scene.Scene;
+import javafx.scene.*;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import model.Patient;
 import model.PatientDAO;
 
@@ -42,16 +49,16 @@ public class PatientFormController {
         LocalDate dateNaissance = dateNaissancePicker.getValue();
 
         // Validation simple
-        // if (nom.isEmpty() || prenom.isEmpty() || cnie.isEmpty() || motDePasse.isEmpty() || dateNaissance == null) {
-        //     showAlert(Alert.AlertType.ERROR, "Erreur", "Veuillez remplir tous les champs.");
-        //     return;
-        // }
+        if (nom.isEmpty() || prenom.isEmpty() || cnie.isEmpty() || motDePasse.isEmpty() || dateNaissance == null) {
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Veuillez remplir tous les champs.");
+            return;
+        }
 
-        // // Vérifier unicité CNIE
-        // if (patientDAO.findByCnie(cnie) != null) {
-        //     showAlert(Alert.AlertType.ERROR, "Erreur", "Un patient avec cette CNIE existe déjà.");
-        //     return;
-        // }
+        // Vérifier unicité CNIE
+        if (patientDAO.findByCnie(cnie) != null) {
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Un patient avec cette CNIE existe déjà.");
+            return;
+        }
 
         // Créer et ajouter le patient
         Patient patient = new Patient(nom, prenom, cnie, motDePasse, dateNaissance);
@@ -60,11 +67,11 @@ public class PatientFormController {
         showAlert(Alert.AlertType.INFORMATION, "Succès", "Patient ajouté avec succès.");
 
         // Réinitialiser le formulaire
-        // nomField.clear();
-        // prenomField.clear();
-        // cnieField.clear();
-        // motDePassField.clear();
-        // dateNaissancePicker.setValue(null);
+        nomField.clear();
+        prenomField.clear();
+        cnieField.clear();
+        motDePassField.clear();
+        dateNaissancePicker.setValue(null);
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {
@@ -73,5 +80,14 @@ public class PatientFormController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @FXML
+    public void goToLoginView(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/login_view.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

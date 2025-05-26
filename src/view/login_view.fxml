@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
@@ -9,112 +8,146 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
-   <children>
-      <VBox layoutY="5.0" prefHeight="390.0" prefWidth="600.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../style/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <left>
+      <AnchorPane prefHeight="550.0" prefWidth="450.0" styleClass="main_color" stylesheets="@styles/login.css" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="39.0" prefWidth="600.0">
-               <children>
-                  <Label layoutY="-5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="736.0" style="-fx-alignment: center; -fx-background-color: #9ef01a;" text="Connexion" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-5.0">
-                     <font>
-                        <Font name="Arial Black" size="25.0" />
-                     </font>
-                  </Label>
-                  <HBox layoutY="3.0" prefHeight="34.0" prefWidth="124.0">
-                     <children>
-                        <ImageView fitHeight="34.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Resources/AppIcon.png" />
-                           </image>
-                        </ImageView>
-                        <Label alignment="CENTER" prefHeight="34.0" prefWidth="59.0" text="Hospit">
-                           <font>
-                              <Font name="Arial" size="19.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-               </children>
-            </AnchorPane>
-            <StackPane alignment="BOTTOM_CENTER" prefHeight="229.0" prefWidth="736.0">
-               <children>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="CNIE" style="-fx-border-width: 1; -fx-border-color: #9ef01a;">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <StackPane.margin>
-                        <Insets />
-                     </StackPane.margin>
-                  </TextField>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </StackPane>
-            <StackPane alignment="BOTTOM_CENTER" prefHeight="65.0" prefWidth="736.0">
-               <children>
-                  <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Mot de Pass" style="-fx-border-color: #9ef01a;">
-                     <StackPane.margin>
-                        <Insets />
-                     </StackPane.margin>
-                  </PasswordField>
-               </children>
-            </StackPane>
-            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="58.0" prefWidth="736.0" style="-fx-spacing: 50;">
-               <children>
-                  <RadioButton mnemonicParsing="false" text="Patient">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="typeButton" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Docteur" toggleGroup="$typeButton">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </RadioButton>
-               </children>
-            </HBox>
-            <StackPane prefHeight="74.0" prefWidth="736.0">
-               <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #9ef01a;" text="Se Connecter">
-                     <font>
-                        <Font name="Arial Bold" size="19.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-            </StackPane>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="300.0">
-               <children>
-                  <Hyperlink text="Creer Compte Patient" textFill="#00a0ff">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Hyperlink>
-                  <Hyperlink layoutX="10.0" layoutY="10.0" text="Creer Compte Docteur" textFill="#009bff">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Hyperlink>
-               </children>
-            </HBox>
+            <ImageView fitHeight="186.0" fitWidth="248.0" layoutX="132.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-bordered">
+               <image>
+                  <Image url="@../resources/AppIcon.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="156.0" layoutY="341.0" opacity="0.85" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-title" text="HOSPIT">
+               <font>
+                  <Font name="Sitka Banner Bold" size="19.0" />
+               </font>
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.4526315927505493" green="0.11734892427921295" blue="0.11734892427921295" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.07290448248386383" green="0.0941130593419075" blue="0.17894737422466278" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Text>
+            <Text layoutX="78.0" layoutY="398.0" nodeOrientation="RIGHT_TO_LEFT" scaleZ="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre santé, notre priorité numérique" x="45.0">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+               <fill>
+                  <RadialGradient centerY="1.0" focusDistance="0.07339451291145527" radius="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.05042105168104172" green="0.5684210658073425" blue="0.023157894611358643" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.012419999577105045" green="0.18000000715255737" blue="0.003599999938160181" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Text>
+            <Hyperlink fx:id="hyper_patient" layoutX="45.0" layoutY="498.0" onAction="#GoToFormPatient" opacity="0.9" prefHeight="26.0" prefWidth="154.0" text="Creer Compte Patient" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Hyperlink>
          </children>
-      </VBox>
-   </children>
-</AnchorPane>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="550.0" prefWidth="450.0" style="-fx-background-color: #eeeeee;" stylesheets="@styles/login.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="19.0" fitWidth="17.0" layoutX="123.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/user.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="f_cnie" layoutX="159.0" layoutY="210.0" prefHeight="32.0" prefWidth="159.0" promptText="CNIE" styleClass="field" />
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="123.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/iconmonstr-key-8-48.png" />
+               </image>
+            </ImageView>
+            <PasswordField fx:id="f_password" layoutX="159.0" layoutY="278.0" prefHeight="32.0" prefWidth="158.0" promptText="Password" styleClass="field" />
+            <Button fx:id="btn_connexion" layoutX="186.0" layoutY="396.0" mnemonicParsing="false" onAction="#ButtonConnexion" prefHeight="30.0" prefWidth="86.0" styleClass="btn" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="12.0" />
+               </font>
+            </Button>
+            <Text fill="#5d9b63" layoutX="172.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login" wrappingWidth="110.9136962890625">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Hyperlink fx:id="hyper_doctor" layoutX="231.0" layoutY="501.0" onAction="#GoToFormDocteur" opacity="0.9" prefHeight="26.0" prefWidth="165.0" text="Creer Compte Docteur" textFill="#5d9b63">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Hyperlink>
+            <Label fx:id="label_incorrect" layoutX="141.0" layoutY="174.0" opacity="0.0" prefHeight="20.0" prefWidth="182.0" text="password ou cnie incorrect" textFill="#db3232de">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="rd_doctor" layoutX="141.0" layoutY="352.0" mnemonicParsing="false" styleClass="rdbutton" stylesheets="@styles/login.css" text="Doctor" textFill="#5d9b63">
+               <toggleGroup>
+                  <ToggleGroup fx:id="type" />
+               </toggleGroup>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rd_patient" layoutX="268.0" layoutY="352.0" mnemonicParsing="false" styleClass="rdbutton" stylesheets="@styles/login.css" text="Patient" textFill="#5d9b63" toggleGroup="$type">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </RadioButton>
+            <ImageView fitHeight="39.0" fitWidth="43.0" layoutX="247.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="43.0" layoutX="178.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="57.0" layoutX="204.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/user.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
