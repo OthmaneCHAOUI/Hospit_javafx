@@ -98,7 +98,6 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
 ## 🛠️ Technologies Utilisées
 
 - **JavaFX** (interface graphique)
-- **SQLite** (base de données locale)
 - **JDBC** (connexion base de données)
 - **Java** (POO, logique métier)
 
@@ -110,7 +109,6 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
 - Interface conviviale en JavaFX
 - Tableaux et listes dynamiques (TableView, ListView)
 - Filtres et recherche par nom ou type de traitement
-- Statistiques basiques (en option)
 - Dialogues de confirmation, notifications d'erreurs
 - Export possible des données (CSV/PDF)
 
@@ -120,6 +118,8 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
 
 - Ajout de rôle secrétaire (si besoin dans le futur)
 - Intégration avec un service web distant
+- Ajout des statistiques
+- La possibilité d'importer des dossiers patients
 - Application mobile ou version web
 
 ---

@@ -2,51 +2,35 @@ package model;
 
 import java.sql.*;
 
-public class PatientDAO {
-    public static int addPatient(Patient patient) {
-        String sql = "INSERT INTO patient(nom, prenom, cnie, mot_de_passe) VALUES (?, ?, ?, ?)";
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+public class PatientDAO
+{
+    public void ajouterPatient(Patient patient){
+        String query = "INSERT INTO Patient (nom,prenom,cnie,mot_de_passe) VALUES (?,?,?,?)";
 
-            stmt.setString(1, patient.getNom());
-            stmt.setString(2, patient.getPrenom());
-            stmt.setString(3, patient.getCnie());
-            stmt.setString(4, patient.getMotDePasse());
-
-            int rowsInserted = stmt.executeUpdate();
-
-            if (rowsInserted > 0) {
-                System.out.println("Patient ajouté avec succès !");
-                return 1;
-            } else {
-                System.out.println("Échec de l'ajout du Patient.");
-            }
-        } catch (SQLIntegrityConstraintViolationException e) {
-            System.out.println("Erreur : Valeur unique déjà utilisée (peut-être CNIE).");
-        } catch (SQLException e) {
+        try (Connection conn = DBConnection.getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)){
+            pstmt.setString(1, patient.getNom());
+            pstmt.setString(2, patient.getPrenom());
+            pstmt.setString(3, patient.getCnie());
+            pstmt.setString(4, patient.getMotDePasse());
+            pstmt.executeUpdate();
+        }
+        catch(SQLException e){
             e.printStackTrace();
         }
-        return 0;
     }
-
-    public static Patient findByCnie(String cnie) {
-        String sql = "SELECT * FROM patient WHERE cnie = ?";
+    
+    public Patient trouverParCnie(String cnie) throws SQLException{
+        String query = "SELECT * FROM Patient WHERE cnie = ?";
         Patient patient = null;
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, cnie);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                patient = new Patient(
-                    rs.getString("nom"),
-                    rs.getString("prenom"),
-                    rs.getString("cnie"),
-                    rs.getString("mot_de_passe")
-                );
-                patient.setId(rs.getInt("id"));
+        try(Connection conn = DBConnection.getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)){
+            
+            pstmt.setString(1, cnie);
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()){
+                return new Patient(rs.getString("nom"), rs.getString("prenom"), rs.getString("cnie"), rs.getString("mot_de_passe"));
             }
-        } catch (SQLException e) {
+        }
+        catch(SQLException e){
             e.printStackTrace();
         }
         return patient;
@@ -54,6 +38,8 @@ public class PatientDAO {
 
     public static Patient checkPatientByCniePassword(String cnie, String password) {
         String sql = "SELECT * FROM patient WHERE cnie = ? AND mot_de_passe = ?";
+    public static Patient checkPatientByCniePassword(String cnie,String password) throws SQLException{
+        String query = "SELECT * FROM Patient WHERE cnie = ? AND mot_de_passe = ? ";
         Patient patient = null;
 
         try (Connection conn = DBConnection.getConnection();
@@ -71,6 +57,21 @@ public class PatientDAO {
                     rs.getString("mot_de_passe")
                 );
                 patient.setId(rs.getInt("id"));
+        
+        try(Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)){
+            
+            pstmt.setString(1, cnie);
+            pstmt.setString(2, password);
+            ResultSet rs = pstmt.executeQuery();
+            
+            if(rs.next()){
+               patient = new Patient();
+               patient.setId(rs.getInt("id")); // Si tu as un champ ID
+               patient.setNom(rs.getString("nom"));
+               patient.setPrenom(rs.getString("prenom"));
+               patient.setCnie(rs.getString("cnie"));
+               patient.setMotDePasse(rs.getString("mot_de_passe"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,11 +82,11 @@ public class PatientDAO {
     
    /* public static List<Doctor> getAllDoctors() throws SQLException{
         List<Doctor> doctors = new ArrayList<>();
-        String sql = "SELECT * FROM doctor";
+        String query = "SELECT * FROM doctor";
         
         try(Connection conn = DBConnection.getConnection();
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql)){
+            Statement pstmt = conn.createStatement();
+            ResultSet rs = pstmt.executeQuery(query)){
            
             while (rs.next()){
                  Doctor doctor = new Doctor(rs.getString("cnie"),rs.getString("mot_de_passe"));
