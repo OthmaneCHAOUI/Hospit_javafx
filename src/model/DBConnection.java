@@ -21,4 +21,15 @@ public class DBConnection {
         }
         return DriverManager.getConnection(URL,USER,PASSWORD);
     }
+
+    // methode plus court et simple
+    /*
+    // Empêche l'instanciation
+    private DBConnection() {}
+
+    public static Connection getConnection() throws SQLException {
+        // Plus besoin de Class.forName avec JDBC 4.0+
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+    */
 }

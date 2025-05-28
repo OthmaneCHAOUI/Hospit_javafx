@@ -1,6 +1,6 @@
--- -- CREATE DATABASE cabinet_db;
+CREATE DATABASE cabinet_medical;
 
-USE cabinet_db;
+USE cabinet_medical;
 
 CREATE TABLE Patient (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -8,7 +8,7 @@ CREATE TABLE Patient (
     prenom VARCHAR(30) NOT NULL,
     cnie VARCHAR(15) NOT NULL UNIQUE,
     mot_de_passe VARCHAR(15) NOT NULL,
-    date_naissance DATE NOT NULL
+    date_naissance DATE
 ) ENGINE=InnoDB ;
 
 
@@ -20,9 +20,9 @@ CREATE TABLE Doctor (
     specialite VARCHAR(50) NOT NULL,
     nom_cabinet VARCHAR(50) NOT NULL,
     telephone VARCHAR(15),
-    adresse_cabinet VARCHAR(255) NOT NULL,
-    -- numero_inscription VARCHAR(20) NOT NULL UNIQUE,
+    adresse_cabinet VARCHAR(255),
     mot_de_passe VARCHAR(15) NOT NULL
+    -- email VARCHAR(30)
 ) ENGINE=InnoDB ;
 
 CREATE TABLE Doctor_Patient (
