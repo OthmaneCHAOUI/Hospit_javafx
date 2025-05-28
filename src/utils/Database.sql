@@ -1,6 +1,6 @@
--- -- CREATE DATABASE cabinet_db;
+CREATE DATABASE cabinet_medical;
 
-USE cabinet_db;
+USE cabinet_medical;
 
 CREATE TABLE Patient (
     id INT AUTO_INCREMENT PRIMARY KEY,
