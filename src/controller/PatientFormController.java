@@ -3,11 +3,11 @@ package controller;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXML;
 import java.io.IOException;
+import java.sql.SQLException;
 import javafx.scene.control.*;
 import javafx.scene.Scene;
 import javafx.scene.*;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import model.Patient;
 import model.PatientDAO;
@@ -41,7 +41,7 @@ public class PatientFormController {
     }
 
     @FXML
-    public void ajouterPatient() {
+    public void ajouterPatient() throws SQLException {
         String nom = nomField.getText().trim();
         String prenom = prenomField.getText().trim();
         String cnie = cnieField.getText().trim();
@@ -61,7 +61,7 @@ public class PatientFormController {
         }
 
         // Créer et ajouter le patient
-        Patient patient = new Patient(nom, prenom, cnie, motDePasse, dateNaissance);
+        Patient patient = new Patient(nom, prenom, cnie, motDePasse);
         patientDAO.addPatient(patient);
 
         showAlert(Alert.AlertType.INFORMATION, "Succès", "Patient ajouté avec succès.");
