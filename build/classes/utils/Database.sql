@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 DROP DATABASE IF EXISTS cabinet_medical;
-=======
->>>>>>> structure/review
 CREATE DATABASE cabinet_medical;
 
 USE cabinet_medical;
@@ -14,7 +11,6 @@ CREATE TABLE Patient (
     mot_de_passe VARCHAR(15) NOT NULL,
     date_naissance DATE
 ) ENGINE=InnoDB ;
-
 
 CREATE TABLE Doctor (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -34,31 +30,28 @@ CREATE TABLE Doctor_Patient (
     id_doctor INT NOT NULL,
     nom VARCHAR(30) NOT NULL,
     prenom VARCHAR(30) NOT NULL,
-    date_naissance DATE NOT NULL,
     cnie VARCHAR(15) NOT NULL,
+    date_naissance DATE,
     ville VARCHAR(30),
     telephone VARCHAR(15),
     adresse VARCHAR(255),
     sexe ENUM('F', 'M') NOT NULL,
-    UNIQUE (id_doctor, cnie),
+    UNIQUE (cnie),
     FOREIGN KEY (id_doctor) REFERENCES Doctor(id) ON DELETE CASCADE
 ) ENGINE=InnoDB ;
-
-
 
 CREATE TABLE Rendez_vous (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_doctor INT NOT NULL,
     cnie_patient VARCHAR(15) NOT NULL,
     date_rendez_vous DATE NOT NULL,
-    heure TIME NOT NULL,
+    heure TIME,
     raison VARCHAR(255),
     statut ENUM('à venir', 'présent', 'absent') DEFAULT 'à venir',
     FOREIGN KEY (id_doctor) REFERENCES Doctor(id) ON DELETE CASCADE,
+    -- FOREIGN KEY (cnie_patient) REFERENCES Doctor_Patient(cnie) ON DELETE CASCADE,
     CONSTRAINT unique_date UNIQUE (date_rendez_vous,cnie_patient,heure)
 ) ENGINE=InnoDB ;
-
-
 
 CREATE TABLE Medicament (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -66,13 +59,12 @@ CREATE TABLE Medicament (
     cnie_patient VARCHAR(15) NOT NULL,
     nom VARCHAR(100) NOT NULL,
     date_debut DATE NOT NULL,
-    periode INT, 
+    periode INT,
     description TEXT,
     FOREIGN KEY (id_doctor) REFERENCES Doctor(id) ON DELETE CASCADE,
+    -- FOREIGN KEY (cnie_patient) REFERENCES Doctor_Patient(cnie) ON DELETE CASCADE,
     CONSTRAINT unique_prescription UNIQUE (cnie_patient, nom, date_debut,id_doctor)
 ) ENGINE=InnoDB ;
-
-
 
 CREATE TABLE test_medical (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -84,6 +76,7 @@ CREATE TABLE test_medical (
     type_doctor ENUM('interne', 'externe') NOT NULL,          
     statut ENUM('en attente', 'effectué') DEFAULT 'en attente',
     FOREIGN KEY (id_doctor) REFERENCES Doctor(id) ON DELETE CASCADE
+    -- FOREIGN KEY (cnie_patient) REFERENCES Doctor_Patient(cnie) ON DELETE CASCADE,
 ) ENGINE=InnoDB ;
 
 -- Doctors

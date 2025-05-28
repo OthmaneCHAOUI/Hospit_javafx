@@ -30,39 +30,40 @@ public class PatientFormController {
 
     @FXML
     private DatePicker dateNaissancePicker;
-
+    
     @FXML
     private Button creerButton;
 
     private PatientDAO patientDAO;
 
-    public PatientFormController() {
+    @FXML
+    public void initialize(){
         patientDAO = new PatientDAO();
     }
 
     @FXML
     public void ajouterPatient() throws SQLException {
-        String nom = nomField.getText().trim();
-        String prenom = prenomField.getText().trim();
-        String cnie = cnieField.getText().trim();
-        String motDePasse = motDePassField.getText().trim();
+        String nom = nomField.getText();
+        String prenom = prenomField.getText();
+        String cnie = cnieField.getText();
+        String motDePasse = motDePassField.getText();
         LocalDate dateNaissance = dateNaissancePicker.getValue();
 
         // Validation simple
-        if (nom.isEmpty() || prenom.isEmpty() || cnie.isEmpty() || motDePasse.isEmpty() || dateNaissance == null) {
+        if (nom.isEmpty() || prenom.isEmpty() || cnie.isEmpty() || motDePasse.isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Erreur", "Veuillez remplir tous les champs.");
             return;
         }
 
         // Vérifier unicité CNIE
-        if (patientDAO.findByCnie(cnie) != null) {
-            showAlert(Alert.AlertType.ERROR, "Erreur", "Un patient avec cette CNIE existe déjà.");
-            return;
-        }
+        // if (patientDAO.trouverParCnie(cnie) != null) {
+        //     showAlert(Alert.AlertType.ERROR, "Erreur", "Un patient avec cette CNIE existe déjà.");
+        //     return;
+        // }
 
         // Créer et ajouter le patient
         Patient patient = new Patient(nom, prenom, cnie, motDePasse);
-        patientDAO.addPatient(patient);
+        patientDAO.ajouterPatient(patient);
 
         showAlert(Alert.AlertType.INFORMATION, "Succès", "Patient ajouté avec succès.");
 
