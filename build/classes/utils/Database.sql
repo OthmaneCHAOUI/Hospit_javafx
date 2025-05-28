@@ -1,6 +1,7 @@
--- -- CREATE DATABASE cabinet_db;
+DROP DATABASE IF EXISTS cabinet_medical;
+CREATE DATABASE cabinet_medical;
 
-USE cabinet_db;
+USE cabinet_medical;
 
 CREATE TABLE Patient (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -82,124 +83,77 @@ CREATE TABLE test_medical (
     FOREIGN KEY (id_doctor) REFERENCES Doctor(id) ON DELETE CASCADE
 ) ENGINE=InnoDB ;
 
+-- Doctors
+INSERT INTO Doctor (nom, prenom, cnie, specialite, nom_cabinet, telephone, adresse_cabinet, mot_de_passe) VALUES
+('El Amrani', 'Youssef', 'AA123456', 'Cardiologie', 'Cabinet Atlas', '0612345678', 'Rue Mohammed V, Rabat', 'pass123'),
+('Bennani', 'Fatima', 'BB234567', 'Dermatologie', 'Clinique Al Amal', '0623456789', 'Avenue Hassan II, Casablanca', 'pass456'),
+('Ouazzani', 'Hicham', 'CC345678', 'Pédiatrie', 'Centre Médical Oujda', '0634567890', 'Boulevard Zerktouni, Oujda', 'pass789');
 
--- ======================
--- 👨‍⚕️ DOCTEURS
--- ======================
-INSERT INTO Doctor (nom, prenom, cnie, specialite, nom_cabinet, telephone, adresse_cabinet, mot_de_passe)
-VALUES 
-('Dupont', 'Jean', 'CNI123A', 'Cardiologue', 'Cabinet Santé Cœur', '0612345678', '12 rue des Lilas, Paris', 'pass1234'),
-('Martin', 'Sophie', 'CNI456B', 'Dermatologue', 'Dermacenter', '0623456789', '89 avenue Lumière, Lyon', 'pass4567'),
-('Nguyen', 'Paul', 'CNI789C', 'Généraliste', 'Clinique Horizon', '0634567890', '45 boulevard Santé, Marseille', 'pass7890');
-
--- ======================
--- 🧍‍♂️ PATIENTS (5 par docteur)
--- ======================
--- Docteur 1 : Dupont
-INSERT INTO Doctor_Patient (id_doctor, nom, prenom, date_naissance, cnie, ville, telephone, adresse, sexe)
-VALUES
-(1, 'Lemoine', 'Alice', '1990-04-12', 'PA001', 'Paris', '0700000001', '10 rue Bleue', 'F'),
-(1, 'Durand', 'Michel', '1985-06-30', 'PA002', 'Paris', '0700000002', '22 rue Rouge', 'M'),
-(1, 'Roux', 'Claire', '1993-09-15', 'PA003', 'Paris', '0700000003', '33 rue Verte', 'F'),
-(1, 'Morel', 'David', '1980-01-22', 'PA004', 'Paris', '0700000004', '44 rue Jaune', 'M'),
-(1, 'Petit', 'Emma', '2000-11-05', 'PA005', 'Paris', '0700000005', '55 rue Noire', 'F');
-
--- Docteur 2 : Martin
-INSERT INTO Doctor_Patient (id_doctor, nom, prenom, date_naissance, cnie, ville, telephone, adresse, sexe)
-VALUES
-(2, 'Girard', 'Luc', '1987-07-10', 'PB001', 'Lyon', '0700000011', '1 rue A', 'M'),
-(2, 'Baron', 'Julie', '1991-03-25', 'PB002', 'Lyon', '0700000012', '2 rue B', 'F'),
-(2, 'Garnier', 'Louis', '1975-12-08', 'PB003', 'Lyon', '0700000013', '3 rue C', 'M'),
-(2, 'Noël', 'Sarah', '1996-02-18', 'PB004', 'Lyon', '0700000014', '4 rue D', 'F'),
-(2, 'Lemoine', 'Kevin', '2002-09-01', 'PB005', 'Lyon', '0700000015', '5 rue E', 'M');
-
--- Docteur 3 : Nguyen
-INSERT INTO Doctor_Patient (id_doctor, nom, prenom, date_naissance, cnie, ville, telephone, adresse, sexe)
-VALUES
-(3, 'Chevalier', 'Anne', '1983-05-02', 'PC001', 'Marseille', '0700000021', '6 rue Alpha', 'F'),
-(3, 'Perrot', 'Lucas', '1990-10-13', 'PC002', 'Marseille', '0700000022', '7 rue Beta', 'M'),
-(3, 'Lefevre', 'Nina', '1995-04-20', 'PC003', 'Marseille', '0700000023', '8 rue Gamma', 'F'),
-(3, 'Renard', 'Thomas', '1988-12-31', 'PC004', 'Marseille', '0700000024', '9 rue Delta', 'M'),
-(3, 'Benoit', 'Laura', '2001-07-07', 'PC005', 'Marseille', '0700000025', '10 rue Epsilon', 'F');
-
--- ======================
--- 💊 MÉDICAMENTS (2 par patient)
--- ======================
-INSERT INTO Medicament (id_doctor, cnie_patient, nom, date_debut, periode, description)
-VALUES
--- Dupont
-(1, 'PA001', 'Doliprane', '2024-05-01', 7, 'Forte fièvre'),
-(1, 'PA001', 'Ibuprofène', '2024-05-08', 5, 'Douleurs musculaires'),
-(1, 'PA002', 'Amlodipine', '2024-05-02', 30, 'Tension artérielle'),
--- Martin
-(2, 'PB001', 'Zyrtec', '2024-05-01', 10, 'Allergies'),
-(2, 'PB002', 'Crème corticoïde', '2024-05-02', 14, 'Eczéma'),
-(2, 'PB003', 'Antifongique', '2024-05-03', 10, 'Mycose'),
--- Nguyen
-(3, 'PC001', 'Vitamine D', '2024-05-01', 30, 'Renforcement osseux'),
-(3, 'PC002', 'Paracétamol', '2024-05-02', 5, 'Maux de tête'),
-(3, 'PC003', 'Oméprazole', '2024-05-03', 14, 'Reflux gastrique');
-
--- ======================
--- 🧪 TESTS MÉDICAUX
--- ======================
-INSERT INTO test_medical (id_doctor, cnie_patient, type_test, resultat, date_test, type_doctor, statut)
-VALUES
--- Dupont
-(1, 'PA001', 'ECG', 'Normale', '2024-04-10', 'interne', 'effectué'),
-(1, 'PA002', 'Échographie cardiaque', 'Légère hypertrophie', '2024-04-12', 'interne', 'effectué'),
--- Martin
-(2, 'PB001', 'Biopsie de peau', 'Bénigne', '2024-04-05', 'externe', 'effectué'),
-(2, 'PB002', 'Allergotest', 'Réaction positive à pollen', '2024-04-07', 'interne', 'effectué'),
--- Nguyen
-(3, 'PC001', 'Prise de sang', 'Niveau fer bas', '2024-04-03', 'interne', 'effectué'),
-(3, 'PC002', 'Scanner', 'Rien à signaler', '2024-04-06', 'externe', 'effectué');
-
--- ======================
--- 🧪 PATIENTS
--- ======================
--- Patients du docteur Dupont
+-- Patients
 INSERT INTO Patient (nom, prenom, cnie, mot_de_passe, date_naissance) VALUES
-('Lemoine', 'Alice', 'PA001', 'motdepasse123', '1990-04-12'),
-('Durand', 'Michel', 'PA002', 'motdepasse123', '1985-06-30'),
-('Roux', 'Claire', 'PA003', 'motdepasse123', '1993-09-15'),
-('Morel', 'David', 'PA004', 'motdepasse123', '1980-01-22'),
-('Petit', 'Emma', 'PA005', 'motdepasse123', '2000-11-05');
+('El Fassi', 'Sara', 'PA100001', 'sara123', '1995-03-12'),
+('Bouazza', 'Omar', 'PA100002', 'omar456', '1988-07-21'),
+('Alaoui', 'Imane', 'PA100003', 'imane789', '1992-11-05'),
+('Naciri', 'Khalid', 'PA100004', 'khalid321', '1980-01-17'),
+('Berrada', 'Salma', 'PA100005', 'salma654', '1999-09-09'),
+('Tazi', 'Mohamed', 'PA100006', 'mohamed987', '1975-05-30'),
+('Chakiri', 'Rachid', 'PA100007', 'rachid111', '1985-12-25'),
+('Sbai', 'Meryem', 'PA100008', 'meryem222', '1997-04-14'),
+('El Idrissi', 'Yassine', 'PA100009', 'yassine333', '1990-06-18'),
+('Kabbaj', 'Laila', 'PA100010', 'laila444', '1993-08-23'),
+('Zouiten', 'Hamza', 'PA100011', 'hamza555', '1982-02-02'),
+('El Ghazali', 'Nadia', 'PA100012', 'nadia666', '1996-10-10'),
+('Mouline', 'Said', 'PA100013', 'said777', '1987-03-03'),
+('El Mansouri', 'Hajar', 'PA100014', 'hajar888', '1991-12-12'),
+('Raji', 'Karim', 'PA100015', 'karim999', '1984-07-07'),
+('El Khatib', 'Samira', 'PA100016', 'samira000', '1998-05-05'),
+('Bennis', 'Youssef', 'PA100017', 'youssef101', '1994-09-19'),
+('El Alaoui', 'Amina', 'PA100018', 'amina202', '1990-11-11'),
+('El Yacoubi', 'Soufiane', 'PA100019', 'soufiane303', '1986-06-06'),
+('El Hachimi', 'Rania', 'PA100020', 'rania404', '1997-01-01');
 
--- Patients du docteur Martin
-INSERT INTO Patient (nom, prenom, cnie, mot_de_passe, date_naissance) VALUES
-('Girard', 'Luc', 'PB001', 'motdepasse456', '1987-07-10'),
-('Baron', 'Julie', 'PB002', 'motdepasse456', '1991-03-25'),
-('Garnier', 'Louis', 'PB003', 'motdepasse456', '1975-12-08'),
-('Noël', 'Sarah', 'PB004', 'motdepasse456', '1996-02-18'),
-('Lemoine', 'Kevin', 'PB005', 'motdepasse456', '2002-09-01');
+-- Doctor_Patient (linking doctors to patients, with extra info)
+INSERT INTO Doctor_Patient (id_doctor, nom, prenom, date_naissance, cnie, ville, telephone, adresse, sexe) VALUES
+(1, 'El Fassi', 'Sara', '1995-03-12', 'PA100001', 'Rabat', '0611111111', 'Quartier Agdal', 'F'),
+(1, 'Bouazza', 'Omar', '1988-07-21', 'PA100002', 'Rabat', '0611111112', 'Avenue Annakhil', 'M'),
+(1, 'Alaoui', 'Imane', '1992-11-05', 'PA100003', 'Rabat', '0611111113', 'Rue Oued Fes', 'F'),
+(2, 'Naciri', 'Khalid', '1980-01-17', 'PA100004', 'Casablanca', '0622222221', 'Maarif', 'M'),
+(2, 'Berrada', 'Salma', '1999-09-09', 'PA100005', 'Casablanca', '0622222222', 'Sidi Maarouf', 'F'),
+(2, 'Tazi', 'Mohamed', '1975-05-30', 'PA100006', 'Casablanca', '0622222223', 'Oasis', 'M'),
+(2, 'Chakiri', 'Rachid', '1985-12-25', 'PA100007', 'Casablanca', '0622222224', 'Bourgogne', 'M'),
+(3, 'Sbai', 'Meryem', '1997-04-14', 'PA100008', 'Oujda', '0633333331', 'Hay Al Qods', 'F'),
+(3, 'El Idrissi', 'Yassine', '1990-06-18', 'PA100009', 'Oujda', '0633333332', 'Hay Salam', 'M'),
+(3, 'Kabbaj', 'Laila', '1993-08-23', 'PA100010', 'Oujda', '0633333333', 'Hay Nahda', 'F'),
+(1, 'Zouiten', 'Hamza', '1982-02-02', 'PA100011', 'Rabat', '0611111114', 'Avenue Fal Ould Oumeir', 'M'),
+(1, 'El Ghazali', 'Nadia', '1996-10-10', 'PA100012', 'Rabat', '0611111115', 'Avenue France', 'F'),
+(2, 'Mouline', 'Said', '1987-03-03', 'PA100013', 'Casablanca', '0622222225', 'Hay Hassani', 'M'),
+(2, 'El Mansouri', 'Hajar', '1991-12-12', 'PA100014', 'Casablanca', '0622222226', 'Ain Sebaa', 'F'),
+(3, 'Raji', 'Karim', '1984-07-07', 'PA100015', 'Oujda', '0633333334', 'Hay El Fath', 'M'),
+(3, 'El Khatib', 'Samira', '1998-05-05', 'PA100016', 'Oujda', '0633333335', 'Hay Al Baraka', 'F'),
+(1, 'Bennis', 'Youssef', '1994-09-19', 'PA100017', 'Rabat', '0611111116', 'Avenue Annasr', 'M'),
+(2, 'El Alaoui', 'Amina', '1990-11-11', 'PA100018', 'Casablanca', '0622222227', 'Hay Riad', 'F'),
+(3, 'El Yacoubi', 'Soufiane', '1986-06-06', 'PA100019', 'Oujda', '0633333336', 'Hay Salam', 'M'),
+(1, 'El Hachimi', 'Rania', '1997-01-01', 'PA100020', 'Rabat', '0611111117', 'Avenue Ibn Sina', 'F');
 
--- Patients du docteur Nguyen
-INSERT INTO Patient (nom, prenom, cnie, mot_de_passe, date_naissance) VALUES
-('Chevalier', 'Anne', 'PC001', 'motdepasse789', '1983-05-02'),
-('Perrot', 'Lucas', 'PC002', 'motdepasse789', '1990-10-13'),
-('Lefevre', 'Nina', 'PC003', 'motdepasse789', '1995-04-20'),
-('Renard', 'Thomas', 'PC004', 'motdepasse789', '1988-12-31'),
-('Benoit', 'Laura', 'PC005', 'motdepasse789', '2001-07-07');
-
--- ======================
--- 🧪 RENDEZ VOUS
--- ======================
-
--- Rendez-vous pour les patients du docteur Dupont (id = 1)
+-- Rendez_vous (appointments)
 INSERT INTO Rendez_vous (id_doctor, cnie_patient, date_rendez_vous, heure, raison, statut) VALUES
-(1, 'PA001', '2024-06-01', '09:00:00', 'Suivi tension', 'à venir'),
-(1, 'PA002', '2024-06-01', '10:00:00', 'Résultat ECG', 'à venir'),
-(1, 'PA003', '2024-06-02', '11:00:00', 'Consultation générale', 'à venir');
+(1, 'PA100001', '2025-06-01', '09:00:00', 'Contrôle annuel', 'à venir'),
+(1, 'PA100002', '2025-06-02', '10:00:00', 'Douleurs thoraciques', 'à venir'),
+(2, 'PA100005', '2025-06-03', '11:00:00', 'Problèmes de peau', 'à venir'),
+(2, 'PA100006', '2025-06-04', '12:00:00', 'Consultation', 'à venir'),
+(3, 'PA100008', '2025-06-05', '13:00:00', 'Vaccination', 'à venir'),
+(3, 'PA100009', '2025-06-06', '14:00:00', 'Fièvre', 'à venir');
 
--- Rendez-vous pour les patients du docteur Martin (id = 2)
-INSERT INTO Rendez_vous (id_doctor, cnie_patient, date_rendez_vous, heure, raison, statut) VALUES
-(2, 'PB001', '2024-06-03', '09:30:00', 'Suivi allergie', 'présent'),
-(2, 'PB002', '2024-06-03', '10:30:00', 'Dermatite chronique', 'absent'),
-(2, 'PB003', '2024-06-04', '11:30:00', 'Eczéma', 'à venir');
+-- Medicament (prescriptions)
+INSERT INTO Medicament (id_doctor, cnie_patient, nom, date_debut, periode, description) VALUES
+(1, 'PA100001', 'Aspirine', '2025-05-20', 10, 'Prendre 1 comprimé par jour'),
+(1, 'PA100002', 'Atorvastatine', '2025-05-21', 30, 'Pour le cholestérol'),
+(2, 'PA100005', 'Crème hydratante', '2025-05-22', 15, 'Appliquer matin et soir'),
+(3, 'PA100008', 'Paracétamol', '2025-05-23', 5, 'En cas de douleur'),
+(3, 'PA100009', 'Ibuprofène', '2025-05-24', 7, 'Après les repas');
 
--- Rendez-vous pour les patients du docteur Nguyen (id = 3)
-INSERT INTO Rendez_vous (id_doctor, cnie_patient, date_rendez_vous, heure, raison, statut) VALUES
-(3, 'PC001', '2024-06-05', '08:30:00', 'Résultats prise de sang', 'à venir'),
-(3, 'PC002', '2024-06-05', '09:30:00', 'Scanner diagnostic', 'présent'),
-(3, 'PC003', '2024-06-06', '10:30:00', 'Douleurs gastriques', 'à venir');
+-- test_medical (medical tests)
+INSERT INTO test_medical (id_doctor, cnie_patient, type_test, resultat, date_test, type_doctor, statut) VALUES
+(1, 'PA100001', 'ECG', 'Normal', '2025-05-25', 'interne', 'effectué'),
+(2, 'PA100005', 'Biopsie', 'En attente', '2025-05-26', 'externe', 'en attente'),
+(3, 'PA100008', 'Test sanguin', 'Anémie détectée', '2025-05-27', 'interne', 'effectué');
