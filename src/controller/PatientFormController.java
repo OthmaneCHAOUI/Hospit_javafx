@@ -29,9 +29,6 @@ public class PatientFormController {
     private PasswordField motDePassField;
 
     @FXML
-    private DatePicker dateNaissancePicker;
-    
-    @FXML
     private Button creerButton;
 
     private PatientDAO patientDAO;
@@ -47,7 +44,7 @@ public class PatientFormController {
         String prenom = prenomField.getText();
         String cnie = cnieField.getText();
         String motDePasse = motDePassField.getText();
-        LocalDate dateNaissance = dateNaissancePicker.getValue();
+        // LocalDate dateNaissance = dateNaissancePicker.getValue();
 
         // Validation simple
         if (nom.isEmpty() || prenom.isEmpty() || cnie.isEmpty() || motDePasse.isEmpty()) {
@@ -72,7 +69,7 @@ public class PatientFormController {
         prenomField.clear();
         cnieField.clear();
         motDePassField.clear();
-        dateNaissancePicker.setValue(null);
+        // dateNaissancePicker.setValue(null);
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {
@@ -84,7 +81,7 @@ public class PatientFormController {
     }
 
     @FXML
-    public void goToLoginView(MouseEvent event) throws IOException {
+    public void allerVersLoginView(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/login_view.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -1,113 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PatientFormController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="617.0" prefWidth="1009.0" stylesheets="@../style/formPatient.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PatientFormController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="250.0" prefWidth="250.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="650.0" prefWidth="650.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="80.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="390.0" prefHeight="390.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="160.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <VBox layoutX="61.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane maxHeight="80.0" maxWidth="500.0" minHeight="60.0" minWidth="250.0" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.hgrow="SOMETIMES">
          <children>
-            <StackPane prefHeight="38.0" prefWidth="600.0">
-               <children>
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #9ef01a;" text="Creation du compte Patient" StackPane.alignment="CENTER">
-                     <font>
-                        <Font name="Arial Black" size="22.0" />
-                     </font>
-                  </Label>
-                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="499.0">
-                     <children>
-                        <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Resources/AppIcon.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="38.0" prefWidth="62.0" text="Hospit">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-               </children>
-            </StackPane>
-            <ImageView fitHeight="42.0" fitWidth="36.0" onMouseClicked="#goToLoginView" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="9.0" layoutY="12.0" onMouseClicked="#allerVersLoginView" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/211618_c_left_arrow_icon.png" />
+                  <Image url="@../resources/4829862_arrow_left_icon.png" />
                </image>
             </ImageView>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="193.0" prefWidth="600.0" spacing="50.0">
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="390.0" minWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="390.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="1">
+         <children>
+            <VBox alignment="CENTER" layoutY="-39.2" maxHeight="800.0" maxWidth="450.0" minWidth="250.0" prefHeight="488.0" prefWidth="250.0" spacing="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <StackPane alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="201.0" prefWidth="198.0">
-                     <children>
-                        <TextField fx:id="nomField" promptText="Nom">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-                  <StackPane alignment="BOTTOM_CENTER" layoutX="211.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="225.0" prefWidth="198.0">
-                     <children>
-                        <TextField fx:id="cnieField" promptText="CNIE" style="-fx-border-color: lightgreen;">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="749.0" spacing="50.0">
-               <children>
-                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="201.0" prefWidth="198.0">
-                     <children>
-                        <TextField fx:id="prenomField" promptText="Prenom">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </StackPane>
-                  <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="112.0" prefWidth="198.0">
-                     <children>
-                        <PasswordField fx:id="motDePassField" promptText="Mot de Pass">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </PasswordField>
-                     </children>
-                  </StackPane>
-               </children>
-            </HBox>
-            <StackPane prefHeight="65.0" prefWidth="749.0">
-               <children>
-                  <DatePicker fx:id="dateNaissancePicker" prefHeight="30.0" prefWidth="300.0" promptText="Date de Naissance" />
-               </children>
-            </StackPane>
-            <StackPane prefHeight="134.0" prefWidth="749.0">
-               <children>
-                  <Button fx:id="creerButton" mnemonicParsing="false" onAction="#ajouterPatient" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #9ef01a;" text="Creer">
+                  <ImageView fitHeight="243.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/AppIcon.png" />
+                     </image>
+                  </ImageView>
+                  <Text lineSpacing="20.0" opacity="0.85" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-title" text="HOSPIT" textAlignment="CENTER">
                      <font>
-                        <Font name="Arial Black" size="17.0" />
+                        <Font name="Sitka Banner Bold" size="40.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </AnchorPane>
+      <AnchorPane maxHeight="160.0" maxWidth="500.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="2" />
+      <AnchorPane maxHeight="80.0" maxWidth="1.7976931348623157E308" minHeight="60.0" minWidth="650.0" prefHeight="60.0" prefWidth="650.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="BOTTOM_CENTER" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Text fill="#5d9b63" strokeType="OUTSIDE" strokeWidth="0.0" text="Creer Compte Patient" textAlignment="CENTER" wrappingWidth="651.2334289550781" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="37.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="390.0" minWidth="650.0" prefHeight="390.0" prefWidth="650.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+         <children>
+            <Label fx:id="label_error_reussi" alignment="CENTER" maxWidth="1.7976931348623157E308" minWidth="650.0" opacity="0.0" prefHeight="18.0" prefWidth="650.0" text="Erreur lors de la création du compte. Veuillez réessayer." textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <padding>
+                  <Insets top="21.0" />
+               </padding>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="389.0" prefWidth="759.0" spacing="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="30.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextField fx:id="nomField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Nom" style="-fx-prompt-text-fill: gray;" styleClass="field">
+                           <font>
+                              <Font size="19.0" />
+                           </font></TextField>
+                        <TextField fx:id="prenomField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Prenom" style="-fx-prompt-text-fill: gray;" styleClass="field">
+                           <font>
+                              <Font size="19.0" />
+                           </font></TextField>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="30.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextField fx:id="cnieField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="CNIE" style="-fx-prompt-text-fill: gray;" styleClass="field">
+                           <font>
+                              <Font size="19.0" />
+                           </font></TextField>
+                        <PasswordField fx:id="motDePassField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Mot de Pass" style="-fx-font-size: 19;" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="160.0" maxWidth="1.7976931348623157E308" minHeight="100.0" minWidth="650.0" prefHeight="100.0" prefWidth="650.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+         <children>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="creerButton" mnemonicParsing="false" onAction="#ajouterPatient" prefHeight="41.0" prefWidth="152.0" styleClass="btn" text="Cree Compte" textFill="#3291f0cf">
+                     <font>
+                        <Font name="Yu Gothic UI Semibold" size="12.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
                </children>
-            </StackPane>
+            </HBox>
          </children>
-      </VBox>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</GridPane>
