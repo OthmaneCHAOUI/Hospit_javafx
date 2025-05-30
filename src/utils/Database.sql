@@ -80,7 +80,7 @@ CREATE TABLE Medicament (
     description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (id_doctor) REFERENCES Doctor(id) ON DELETE CASCADE
+    FOREIGN KEY (id_doctor) REFERENCES Doctor(id) ON DELETE CASCADE,
     UNIQUE (cnie_patient, nom, date_debut, id_doctor)
 ) ENGINE=InnoDB;
 
