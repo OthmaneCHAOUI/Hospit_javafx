@@ -34,6 +34,9 @@
                <image>
                   <Image url="@../resources/4829862_arrow_left_icon.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </children>
       </AnchorPane>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane prefHeight="344.0" prefWidth="711.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.PatientDashboardController">
+    <top>
+        <AnchorPane prefHeight="42.0" prefWidth="711.0">
+
+            <!-- Left: Logo + App Name -->
+            <HBox alignment="CENTER" layoutY="6.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="6.0">
+                <ImageView fitHeight="30.0" fitWidth="30.0">
+                    <image>
+                        <Image url="@../resources/AppIcon.png" /> <!-- Replace with your logo -->
+                    </image>
+                </ImageView>
+                <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Hospit" />
+            </HBox>
+
+            <!-- Right: Account Icon + Name -->
+            <HBox spacing="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                <Label style="-fx-font-size: 14px;" text="username" />
+                <ImageView fitHeight="30.0" fitWidth="30.0">
+                    <image>
+                        <Image url="@../resources/326497_account_circle_icon.png" /> <!-- Replace with your user icon -->
+                    </image>
+                </ImageView>
+            </HBox>
+        </AnchorPane>
+    </top>
+</BorderPane>
