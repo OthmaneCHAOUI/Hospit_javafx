@@ -7,6 +7,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,11 +15,12 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="867.0" stylesheets="@../style/connexionStyle.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
       <GridPane alignment="CENTER" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -47,7 +49,7 @@
                         <Insets bottom="30.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Votre santé, notre priorité numérique" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Votre santé, notre priorité" textFill="WHITE">
                      <font>
                         <Font name="Agency FB Bold" size="20.0" />
                      </font>
@@ -56,7 +58,7 @@
             </VBox>
             <VBox alignment="CENTER" GridPane.columnIndex="1">
                <children>
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="131.0" prefWidth="433.0" style="-fx-text-fill: limegreen;" text="Espace Connexion">
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="104.0" prefWidth="466.0" style="-fx-text-fill: limegreen;" text="Espace de Connexion">
                      <font>
                         <Font name="Arial Bold" size="35.0" />
                      </font>
@@ -69,24 +71,35 @@
                         <Insets bottom="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                  <TextField fx:id="f_cnie" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" promptText="CNIE" styleClass="field">
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>
                   </TextField>
-                  <PasswordField maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                  <PasswordField fx:id="f_password" maxWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" promptText="Mot de pass" styleClass="field">
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                  <HBox alignment="CENTER" prefHeight="123.0" prefWidth="466.0" spacing="40.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" text="RadioButton" />
-                        <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="RadioButton" />
+                        <RadioButton fx:id="rd_patient" mnemonicParsing="false" text="Patient" textFill="LIMEGREEN">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="type" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rd_doctor" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Médecin" textFill="LIMEGREEN" toggleGroup="$type">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </RadioButton>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Button" />
-                  <GridPane alignment="CENTER_RIGHT">
+                  <Button fx:id="btn_connexion" mnemonicParsing="false" onAction="#ButtonConnexion" prefHeight="50.0" prefWidth="100.0" styleClass="connexion-button" text="Connexion" />
+                  <GridPane alignment="CENTER_RIGHT" prefHeight="215.0" prefWidth="466.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" />
                       <ColumnConstraints hgrow="SOMETIMES" />
@@ -95,8 +108,30 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Hyperlink text="Creer compte Patient" />
-                        <Hyperlink alignment="CENTER_RIGHT" text="Creer compte Médecin" GridPane.columnIndex="1" />
+                        <StackPane alignment="BOTTOM_RIGHT" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                              <Hyperlink fx:id="hyper_doctor" alignment="CENTER_RIGHT" onAction="#GoToFormDocteur" text="Creer compte Médecin">
+                                 <StackPane.margin>
+                                    <Insets bottom="20.0" right="10.0" />
+                                 </StackPane.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Hyperlink>
+                           </children>
+                        </StackPane>
+                        <StackPane alignment="BOTTOM_LEFT" prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <Hyperlink fx:id="hyper_patient" onAction="#GoToFormPatient" text="Creer compte Patient">
+                                 <StackPane.margin>
+                                    <Insets bottom="20.0" left="10.0" />
+                                 </StackPane.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Hyperlink>
+                           </children>
+                        </StackPane>
                      </children>
                   </GridPane>
                </children>

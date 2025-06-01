@@ -3,7 +3,6 @@
     -fx-border-color: limegreen;
     -fx-border-width: 0 0 1.5 0;
     -fx-border-radius: 0 0 0 0;
-    /* -fx-padding: 6px 6px 6px 12px; */
 }
 
 .label {
@@ -25,4 +24,7 @@
     -fx-text-fill: white;
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
+}
+
+.table{
 }

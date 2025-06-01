@@ -14,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Charger le fichier FXML et configure la scène
-        Parent root = FXMLLoader.load(getClass().getResource("/view/login_view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/connexion_view.fxml"));
 
         // titre et taille de fenetre
         primaryStage.setTitle("Hospit");

@@ -40,25 +40,59 @@ public class PatientFormController {
 
     @FXML
     public void ajouterPatient() throws SQLException {
-        String nom = nomField.getText();
-        String prenom = prenomField.getText();
-        String cnie = cnieField.getText();
-        String motDePasse = motDePassField.getText();
+        boolean hasError = false;
 
-        // Validation simple
-        if (nom.isEmpty() || prenom.isEmpty() || cnie.isEmpty() || motDePasse.isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, "Erreur", "Veuillez remplir tous les champs.");
+        // Réinitialiser les styles
+        nomField.setStyle("");
+        prenomField.setStyle("");
+        cnieField.setStyle("");
+        motDePassField.setStyle("");
+
+        if (nomField.getText().trim().isEmpty()) {
+            nomField.setPromptText("Nom est obligatoire");
+            nomField.setStyle("-fx-prompt-text-fill: red;");
+            nomField.getStyleClass().add("field-error");
+            hasError = true;
+        }
+        if (prenomField.getText().trim().isEmpty()) {
+            prenomField.setPromptText("Prénom est obligatoire");
+            prenomField.setStyle("-fx-prompt-text-fill: red;");
+            prenomField.getStyleClass().add("field-error");
+            hasError = true;
+        }
+        if (cnieField.getText().trim().isEmpty()) {
+            cnieField.setPromptText("CNIE est obligatoire");
+            cnieField.setStyle("-fx-prompt-text-fill: red;");
+            cnieField.getStyleClass().add("field-error");
+            hasError = true;
+        }
+        if (motDePassField.getText().trim().isEmpty()) {
+            motDePassField.setPromptText("Mot de passe est obligatoire");
+            motDePassField.setStyle("-fx-prompt-text-fill: red;");
+            motDePassField.getStyleClass().add("field-error");
+            hasError = true;
+        }
+
+        if (hasError) {
             return;
         }
 
         // Vérifier unicité CNIE
-        if (patientDAO.trouverParCnie(cnie) != null) {
-            showAlert(Alert.AlertType.ERROR, "Erreur", "Un patient avec cette CNIE existe déjà.");
+        if (patientDAO.trouverParCnie(cnieField.getText()) != null) {
+            cnieField.clear();
+            cnieField.setPromptText("CNIE déjà utilisée");
+            cnieField.setStyle("-fx-prompt-text-fill: red;");
+            cnieField.getStyleClass().add("field-error");
             return;
         }
 
         // Créer et ajouter le patient
-        Patient patient = new Patient(nom, prenom, cnie, motDePasse);
+        Patient patient = new Patient(
+            nomField.getText(),
+            prenomField.getText(),
+            cnieField.getText(),
+            motDePassField.getText()
+        );
         patientDAO.ajouterPatient(patient);
 
         showAlert(Alert.AlertType.INFORMATION, "Succès", "Patient ajouté avec succès.");
@@ -80,7 +114,7 @@ public class PatientFormController {
 
     @FXML
     public void allerVersLoginView(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/login_view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/connexion_view.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);

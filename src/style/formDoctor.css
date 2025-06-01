@@ -1,28 +1,16 @@
-.image-view-bordered {
-    -fx-border-color: white;
-    -fx-border-width: 3px;
-    -fx-border-radius: 10px;
-    /* -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0.6, 0, 3); */
-}
-
 .label-title {
     -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
     /* -fx-effect: dropshadow(gaussian, bleu, 8, 0.6, 0, 3); */
 }
 
-AnchorPane {
-    -fx-background-color: #eeeeee;
-}
-
 .field {
     -fx-background-color: transparent;
-    -fx-border-color: #5d9b63;
+    -fx-border-color: limegreen;
     -fx-border-width: 0 0 1.5 0;
     -fx-border-radius: 0 0 0 0;
     -fx-padding: 6px 6px 6px 12px;
-
-
+    -fx-font-size: 14;
 }
 
 .field-error {
