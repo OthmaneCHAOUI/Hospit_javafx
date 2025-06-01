@@ -30,12 +30,32 @@ public class DoctorDAO {
             System.out.println("Échec de l'ajout du Doctor.");
         }
         }catch (SQLIntegrityConstraintViolationException e) {
-            System.out.println("Erreur : Valeur unique déjà utilisée (peut-être CNIE ou téléphone).");
+            System.out.println("Erreur : Valeur unique déjà utilisée.");
         }catch(SQLException e) {
             e.printStackTrace();
         }
         return 0;
     }
+
+    public static Doctor trouverDocParCnieAddressTelephone(String cnie, String adresse, String telephone) throws SQLException {
+        String sql = "SELECT * FROM doctor WHERE cnie = ? OR adresse_cabinet = ? OR telephone = ?";
+        Doctor doctor = null;
+        try (Connection conn = DBConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, cnie);
+            stmt.setString(2, adresse);
+            stmt.setString(3, telephone);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                doctor = new Doctor();
+                doctor.setCnie(rs.getString("cnie"));
+                doctor.setAdresseCabinet(rs.getString("adresse_cabinet"));
+                doctor.setTelephone(rs.getString("telephone"));
+            }
+        }
+        return doctor;
+    }
+
     public static Doctor checkDoctorByCniePassword(String cnie,String password) throws SQLException{
         String sql = "SELECT * FROM doctor WHERE cnie = ? AND mot_de_passe = ? ";
         Doctor doctor = null;

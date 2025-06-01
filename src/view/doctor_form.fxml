@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,9 +12,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -32,61 +26,24 @@
       <RowConstraints maxHeight="160.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <AnchorPane maxHeight="80.0" maxWidth="500.0" minHeight="60.0" minWidth="250.0" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.hgrow="SOMETIMES">
-         <children>
-            <Button fx:id="btn_retour" layoutX="37.0" layoutY="14.0" mnemonicParsing="false" onAction="#ButtonRetour" prefHeight="37.0" prefWidth="87.0" text="Retour">
-               <styleClass>
-                  <String fx:value="btn" />
-                  <String fx:value="btn_retour" />
-               </styleClass>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
+      <AnchorPane maxHeight="80.0" maxWidth="500.0" minHeight="60.0" minWidth="250.0" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: limegreen;" GridPane.hgrow="SOMETIMES" />
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="390.0" minWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="390.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="1">
          <children>
-            <VBox alignment="TOP_CENTER" layoutY="-39.2" maxHeight="800.0" maxWidth="450.0" minWidth="250.0" prefHeight="430.0" prefWidth="250.0" spacing="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox alignment="CENTER" layoutY="-39.2" maxHeight="800.0" maxWidth="450.0" minWidth="250.0" prefHeight="430.0" prefWidth="250.0" spacing="45.0" style="-fx-background-color: limegreen;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fitHeight="140.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-bordered">
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
+                  <ImageView fitHeight="242.0" fitWidth="227.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/AppIcon.png" />
                      </image>
                      <VBox.margin>
-                        <Insets top="72.0" />
+                        <Insets bottom="20.0" />
                      </VBox.margin>
-                     <effect>
-                        <Shadow height="0.0" radius="31.655" width="128.62" />
-                     </effect>
                   </ImageView>
-                  <Text lineSpacing="20.0" opacity="0.85" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-title" text="HOSPIT" textAlignment="CENTER">
+                  <Label text="HOSPIT">
                      <font>
-                        <Font name="Sitka Banner Bold" size="40.0" />
+                        <Font name="System Bold" size="30.0" />
                      </font>
-                     <fill>
-                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.4526315927505493" green="0.11734892427921295" blue="0.11734892427921295" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.07290448248386383" green="0.0941130593419075" blue="0.17894737422466278" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </RadialGradient>
-                     </fill>
-                     <VBox.margin>
-                        <Insets top="8.0" />
-                     </VBox.margin>
-                  </Text>
+                  </Label>
                </children>
             </VBox>
          </children>
@@ -94,12 +51,12 @@
             <Insets />
          </GridPane.margin>
       </AnchorPane>
-      <AnchorPane maxHeight="160.0" maxWidth="500.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="2" />
+      <AnchorPane maxHeight="160.0" maxWidth="500.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: limegreen;" GridPane.rowIndex="2" />
       <AnchorPane maxHeight="80.0" maxWidth="1.7976931348623157E308" minHeight="60.0" minWidth="650.0" prefHeight="60.0" prefWidth="650.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
             <HBox alignment="BOTTOM_CENTER" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Text fill="#5d9b63" strokeType="OUTSIDE" strokeWidth="0.0" text="Creation du compte doctor" textAlignment="CENTER" wrappingWidth="651.2334289550781" HBox.hgrow="ALWAYS">
+                  <Text fill="LIMEGREEN" strokeType="OUTSIDE" strokeWidth="0.0" text="Creation du compte doctor" textAlignment="CENTER" wrappingWidth="651.2334289550781" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="37.0" />
                      </font>
