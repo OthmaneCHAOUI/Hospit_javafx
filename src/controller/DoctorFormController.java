@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.DoctorDAO;
 import model.Doctor;
@@ -53,9 +54,8 @@ public class DoctorFormController {
     private Label label_error_reussi;
     
     @FXML
-    void ButtonRetour(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login_view.fxml")) ;
-        Parent root = loader.load();
+    public void allerVersLoginView(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/connexion_view.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);

@@ -73,4 +73,16 @@ public class Patient {
 
     public String getCompteCree() { return compteCree; }
     public void setCompteCree(String compteCree) { this.compteCree = compteCree; }
+
+    public int getAge() {
+        if (dateNaissance == null) return 0;
+        return java.time.Period.between(dateNaissance, java.time.LocalDate.now()).getYears();
+    }
+
+    public void setAge(int age) {
+        if (dateNaissance != null) {
+            // Met à jour la date de naissance en fonction de l'âge donné (approximatif, au 1er janvier)
+            this.dateNaissance = java.time.LocalDate.now().minusYears(age);
+        }
+    }
 }

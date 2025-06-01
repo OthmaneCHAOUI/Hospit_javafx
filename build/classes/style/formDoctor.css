@@ -18,8 +18,7 @@
 }
 
 .btn {
-    -fx-background-color: #5d9b63;
-    -fx-background-radius: 100px;
+    -fx-background-color: limegreen;
     -fx-text-fill: white;
     /* Couleur du texte */
     -fx-font-family: "Arial";
@@ -35,38 +34,16 @@
 }
 
 .btn:hover {
-    -fx-background-color: #eeeeee;
-    -fx-text-fill: #3291f0;
+    -fx-background-color: dodgerblue;
+    -fx-text-fill: white;
     /* Couleur du texte au hover */
-    -fx-scale-x: 1.01;
+    -fx-scale-x: 1.1;
     /* Zoom léger */
-    -fx-scale-y: 1.01;
+    -fx-scale-y: 1.1;
     /* -fx-effect: dropshadow(gaussian, #5d9b63, 5, 0.2, 1.5, 1.2); */
 }
 
-.btn_retour {
-    -fx-background-color: #5d9b63;
-    -fx-border-radius: 200px;
-    -fx-text-fill: #eeeeee;
-    /* Couleur du texte */
-    -fx-font-family: "Arial";
-    /* Police */
-    -fx-font-size: 12px;
-    /* Taille du texte */
-    -fx-font-weight: bold;
-    /* Texte en gras */
-    -fx-cursor: hand;
-    /* Curseur en main au survol */
-    /* -fx-effect: dropshadow(gaussian, #eeeeee, 2, 0.2, 1.8, 0); */
-}
-
-.btn_retour:hover {
-    -fx-background-color: tranparent;
-    -fx-text-fill: #eeeeee;
-    /* Couleur du texte au hover */
-    -fx-scale-x: 1.01;
-    /* Zoom léger */
-    -fx-scale-y: 1.01;
-    /* -fx-effect: dropshadow(gaussian, #000000, 5, 0.2, 1.5, 1.2); */
-    -fx-border-color: #eeeeee;
+.return:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
 }

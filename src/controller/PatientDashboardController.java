@@ -148,7 +148,7 @@ public class PatientDashboardController {
     }
 
     public void refreshTable(TableView<?> table) {
-        mainVBox.getChildren().removeIf(node -> node instanceof TableView);
+        mainVBox.getChildren().removeIf(node -> node instanceof TableView || (node instanceof VBox && node != mainVBox));
         mainVBox.getChildren().add(table);
     }
 
@@ -224,6 +224,7 @@ public class PatientDashboardController {
             new PatientDAO().updatePatient(patient);
             usernameLabel.setText(patient.getNom());
             mainVBox.getChildren().remove(form);
+            loadMedicamentsTable();
         });
 
         form.getChildren().addAll(
