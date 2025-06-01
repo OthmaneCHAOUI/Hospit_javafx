@@ -44,7 +44,6 @@ public class PatientFormController {
         String prenom = prenomField.getText();
         String cnie = cnieField.getText();
         String motDePasse = motDePassField.getText();
-        // LocalDate dateNaissance = dateNaissancePicker.getValue();
 
         // Validation simple
         if (nom.isEmpty() || prenom.isEmpty() || cnie.isEmpty() || motDePasse.isEmpty()) {
@@ -53,10 +52,10 @@ public class PatientFormController {
         }
 
         // Vérifier unicité CNIE
-        // if (patientDAO.trouverParCnie(cnie) != null) {
-        //     showAlert(Alert.AlertType.ERROR, "Erreur", "Un patient avec cette CNIE existe déjà.");
-        //     return;
-        // }
+        if (patientDAO.trouverParCnie(cnie) != null) {
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Un patient avec cette CNIE existe déjà.");
+            return;
+        }
 
         // Créer et ajouter le patient
         Patient patient = new Patient(nom, prenom, cnie, motDePasse);
@@ -69,7 +68,6 @@ public class PatientFormController {
         prenomField.clear();
         cnieField.clear();
         motDePassField.clear();
-        // dateNaissancePicker.setValue(null);
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {

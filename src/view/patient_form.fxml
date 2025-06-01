@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -28,18 +29,7 @@
       <RowConstraints maxHeight="160.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <AnchorPane maxHeight="80.0" maxWidth="500.0" minHeight="60.0" minWidth="250.0" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.hgrow="SOMETIMES">
-         <children>
-            <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="9.0" layoutY="12.0" onMouseClicked="#allerVersLoginView" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/4829862_arrow_left_icon.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-         </children>
-      </AnchorPane>
+      <AnchorPane maxHeight="80.0" maxWidth="500.0" minHeight="60.0" minWidth="250.0" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.hgrow="SOMETIMES" />
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="390.0" minWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="390.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="1">
          <children>
             <VBox alignment="CENTER" layoutY="-39.2" maxHeight="800.0" maxWidth="450.0" minWidth="250.0" prefHeight="488.0" prefWidth="250.0" spacing="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -67,18 +57,23 @@
       <AnchorPane maxHeight="160.0" maxWidth="500.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="2" />
       <AnchorPane maxHeight="80.0" maxWidth="1.7976931348623157E308" minHeight="60.0" minWidth="650.0" prefHeight="60.0" prefWidth="650.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <HBox alignment="BOTTOM_CENTER" maxWidth="1.7976931348623157E308" prefHeight="60.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <StackPane alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="388.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Text fill="#5d9b63" strokeType="OUTSIDE" strokeWidth="0.0" text="Creer Compte Patient" textAlignment="CENTER" wrappingWidth="651.2334289550781" HBox.hgrow="ALWAYS">
+                  <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#allerVersLoginView" pickOnBounds="true" preserveRatio="true" styleClass="return-image" StackPane.alignment="BOTTOM_LEFT">
+                     <image>
+                        <Image url="@../resources/211618_c_left_arrow_icon.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text fill="#5d9b63" strokeType="OUTSIDE" strokeWidth="0.0" text="Creer Compte Patient" textAlignment="CENTER" wrappingWidth="651.2334289550781" StackPane.alignment="CENTER">
                      <font>
                         <Font name="System Bold" size="37.0" />
                      </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
                   </Text>
                </children>
-            </HBox>
+            </StackPane>
          </children>
       </AnchorPane>
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="390.0" minWidth="650.0" prefHeight="390.0" prefWidth="650.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
@@ -95,11 +90,11 @@
                <children>
                   <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="30.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <TextField fx:id="nomField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Nom" style="-fx-prompt-text-fill: gray;" styleClass="field">
+                        <TextField fx:id="nomField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Nom" styleClass="field">
                            <font>
                               <Font size="19.0" />
                            </font></TextField>
-                        <TextField fx:id="prenomField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Prenom" style="-fx-prompt-text-fill: gray;" styleClass="field">
+                        <TextField fx:id="prenomField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Prenom" styleClass="field">
                            <font>
                               <Font size="19.0" />
                            </font></TextField>
@@ -110,11 +105,15 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="30.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <TextField fx:id="cnieField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="CNIE" style="-fx-prompt-text-fill: gray;" styleClass="field">
+                        <TextField fx:id="cnieField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="CNIE" styleClass="field">
                            <font>
                               <Font size="19.0" />
                            </font></TextField>
-                        <PasswordField fx:id="motDePassField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Mot de Pass" style="-fx-font-size: 19;" />
+                        <PasswordField fx:id="motDePassField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Mot de Pass" styleClass="field">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </PasswordField>
                      </children>
                      <HBox.margin>
                         <Insets />

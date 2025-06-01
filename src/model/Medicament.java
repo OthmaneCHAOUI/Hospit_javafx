@@ -19,6 +19,15 @@ public class Medicament {
         this.description = description;
     }
 
+    public Medicament(int idDoctor, String cniePatient, String nom, LocalDate dateDebut, int periode, String description) {
+        this.idDoctor = idDoctor;
+        this.cniePatient = cniePatient;
+        this.nom = nom;
+        this.dateDebut = dateDebut;
+        this.periode = periode;
+        this.description = description;
+    }
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public int getIdDoctor() { return idDoctor; }

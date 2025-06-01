@@ -13,10 +13,15 @@ public class Doctor {
     private String nomCabinet;
     private String telephone;
     private String adresseCabinet;
-    // private String numeroInscription;
     private String motDePasse;
 
     public Doctor(){}
+    public Doctor(int id, String nom, String prenom, String specialite) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.specialite = specialite;
+    }
 
     public Doctor(String nom, String prenom, String cnie, String specialite, String nomCabinet, String telephone, String adresseCabinet, String motDePasse) {
         this.nom = nom;
@@ -28,7 +33,6 @@ public class Doctor {
         this.adresseCabinet = adresseCabinet;
         this.motDePasse = motDePasse;
     }
-// ...existing code...
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }

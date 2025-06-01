@@ -52,7 +52,7 @@ public class LoginController {
     
     
     @FXML
-    void GoToFormDocteur(ActionEvent event) throws IOException {
+    public void GoToFormDocteur(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/doctor_form.fxml")) ;
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -60,9 +60,23 @@ public class LoginController {
         stage.setScene(scene);
         stage.show();
     }
+    
+    public void goToPatientDashboard(ActionEvent event, Patient patient) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/patient_dashboard_view.fxml"));
+        Parent root = loader.load();
+
+        // Récupération du contrôleur et passage du patient
+        PatientDashboardController controller = loader.getController();
+        controller.setPatient(patient); // méthode à créer dans PatientDashboardController
+
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
-    void GoToFormPatient(ActionEvent event) throws IOException {
+    public void GoToFormPatient(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/patient_form.fxml")) ;
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -72,7 +86,7 @@ public class LoginController {
     }
     
     @FXML
-    void ButtonConnexion(ActionEvent event) throws SQLException{
+    public void ButtonConnexion(ActionEvent event) throws SQLException, IOException{
         if(f_cnie.getText().trim().isEmpty() || f_password.getText().trim().isEmpty() || type.getSelectedToggle() == null){ 
             if (f_cnie.getText().trim().isEmpty()) {
                 f_cnie.setPromptText("CNIE est obligatoire");
@@ -101,7 +115,8 @@ public class LoginController {
             }else{
                 Patient patient = PatientDAO.checkPatientByCniePassword(f_cnie.getText(), f_password.getText());
                 if(patient != null){
-                          System.out.println("Connexion reussi : Bienvenue Mr."+patient.getNom()+" "+patient.getPrenom());
+                          System.out.println("Connexion reussi : Bienvenue "+patient.getNom()+" "+patient.getPrenom());
+                          goToPatientDashboard(event, patient);
                 }else{
                         System.out.println("Echec de connexion");
                         label_incorrect.setStyle("-fx-opacity : 1.0");

@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class DoctorDAO {
     
@@ -62,7 +64,8 @@ public class DoctorDAO {
         }
         return doctor ;
     }
-   /* public static List<Doctor> getAllDoctors() throws SQLException{
+
+    public static List<Doctor> getAllDoctors() throws SQLException{
         List<Doctor> doctors = new ArrayList<>();
         String sql = "SELECT * FROM doctor";
         
@@ -71,22 +74,45 @@ public class DoctorDAO {
             ResultSet rs = stmt.executeQuery(sql)){
            
             while (rs.next()){
-                 Doctor doctor = new Doctor(rs.getString("cnie"),rs.getString("mot_de_passe"));
-                 doctors.add(doctor);
-                // doctor.setId(rs.getInt("id")); // Si tu as un champ ID
-                 //doctor.setNom(rs.getString("nom"));
-                 //doctor.setPrenom(rs.getString("prenom"));
-                 //doctor.setCnie(rs.getString("cnie"));
-                 //doctor.setSpecialite(rs.getString("specialite"));
-                // doctor.setNomCabinet(rs.getString("nom_cabinet"));
-                // doctor.setTelephone(rs.getString("telephone"));
-                 //doctor.setAdresseCabinet(rs.getString("adresse_cabinet"));
-                // doctor.setMotDePasse(rs.getString("mot_de_passe"));
+                Doctor doctor = new Doctor();
+                doctor.setId(rs.getInt("id"));
+                doctor.setNom(rs.getString("nom"));
+                doctor.setPrenom(rs.getString("prenom"));
+                doctor.setCnie(rs.getString("cnie"));
+                doctor.setSpecialite(rs.getString("specialite"));
+                doctor.setNomCabinet(rs.getString("nom_cabinet"));
+                doctor.setTelephone(rs.getString("telephone"));
+                doctor.setAdresseCabinet(rs.getString("adresse_cabinet"));
+                doctor.setMotDePasse(rs.getString("mot_de_passe"));
+                doctors.add(doctor);
             }
         }catch(SQLException e){
             e.printStackTrace();
         }
         
         return doctors ;
-    }*/
+    }
+
+    // DoctorDAO.java
+    public static List<Doctor> getDoctorsByPatient(String cnie) throws SQLException {
+        List<Doctor> doctors = new ArrayList<>();
+        String sql = "SELECT d.* FROM doctor d " +
+                    "JOIN traitement t ON d.id = t.doctor_id " +
+                    "WHERE t.patient_cnie = ?";
+        try (Connection conn = DBConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, cnie);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Doctor doc = new Doctor(
+                    rs.getInt("id"),
+                    rs.getString("nom"),
+                    rs.getString("prenom"),
+                    rs.getString("specialite")
+                );
+                doctors.add(doc);
+            }
+        }
+        return doctors;
+    }
 }
