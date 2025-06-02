@@ -208,10 +208,6 @@ public class PatientDashboardController {
             patient.setSexe(selectedSexe);
             patient.setMotDePasse(motDePasseField.getText());
 
-            // if (!motDePasseField.getText().trim().isEmpty()) {
-            //     patient.setMotDePasse(motDePasseField.getText().trim());
-            // }
-
             new PatientDAO().updatePatient(patient);
             usernameLabel.setText(patient.getNom());
             // Activer et afficher la fenêtre
@@ -228,98 +224,4 @@ public class PatientDashboardController {
         selectedSexe = item.getText();
         sexeMenu.setText(selectedSexe); // Affiche le choix dans le menu
     }
-
-
-
-    // public void showProfileEdit(MouseEvent event) {
-    //     VBox form = new VBox(10);
-
-    //     // Champs
-    //     TextField nomField = new TextField(patient.getNom());
-    //     TextField prenomField = new TextField(patient.getPrenom());
-    //     TextField villeField = new TextField(patient.getVille());
-    //     TextField emailField = new TextField(patient.getEmail());
-    //     TextField telephoneField = new TextField(patient.getTelephone());
-    //     TextField adresseField = new TextField(patient.getAdresse());
-    //     DatePicker dateNaissancePicker = new DatePicker(patient.getDateNaissance());
-    //     ComboBox<String> sexeCombo = new ComboBox<>();
-    //     sexeCombo.getItems().addAll("M", "F");
-    //     sexeCombo.setValue(patient.getSexe());
-    //     PasswordField motDePasseField = new PasswordField();
-    //     motDePasseField.setText(patient.getMotDePasse());
-    //     // motDePasseField.setPromptText("Nouveau mot de passe (laisser vide pour garder l'actuel)");
-
-    //     // Appliquer les classes CSS
-    //     nomField.getStyleClass().add("field");
-    //     prenomField.getStyleClass().add("field");
-    //     villeField.getStyleClass().add("field");
-    //     emailField.getStyleClass().add("field");
-    //     telephoneField.getStyleClass().add("field");
-    //     adresseField.getStyleClass().add("field");
-    //     dateNaissancePicker.getStyleClass().add("field");
-    //     sexeCombo.getStyleClass().add("field");
-    //     motDePasseField.getStyleClass().add("field");
-
-    //     // Labels
-    //     Label nomLabel = new Label("Nom");
-    //     Label prenomLabel = new Label("Prénom");
-    //     Label villeLabel = new Label("Ville");
-    //     Label emailLabel = new Label("Email");
-    //     Label telephoneLabel = new Label("Téléphone");
-    //     Label adresseLabel = new Label("Adresse");
-    //     Label dateLabel = new Label("Date de naissance");
-    //     Label sexeLabel = new Label("Sexe");
-    //     Label mdpLabel = new Label("Mot de passe");
-
-    //     nomLabel.getStyleClass().add("label");
-    //     prenomLabel.getStyleClass().add("label");
-    //     villeLabel.getStyleClass().add("label");
-    //     emailLabel.getStyleClass().add("label");
-    //     telephoneLabel.getStyleClass().add("label");
-    //     adresseLabel.getStyleClass().add("label");
-    //     dateLabel.getStyleClass().add("label");
-    //     sexeLabel.getStyleClass().add("label");
-    //     mdpLabel.getStyleClass().add("label");
-
-    //     // Bouton
-    //     Button saveButton = new Button("Enregistrer");
-    //     saveButton.getStyleClass().add("enregi-button");
-
-    //     saveButton.setOnAction(e -> {
-    //         patient.setNom(nomField.getText());
-    //         patient.setPrenom(prenomField.getText());
-    //         patient.setVille(villeField.getText());
-    //         patient.setEmail(emailField.getText());
-    //         patient.setTelephone(telephoneField.getText());
-    //         patient.setAdresse(adresseField.getText());
-    //         patient.setDateNaissance(dateNaissancePicker.getValue());
-    //         patient.setSexe(sexeCombo.getValue());
-    //         patient.setMotDePasse(motDePasseField.getText());
-
-    //         // if (!motDePasseField.getText().trim().isEmpty()) {
-    //         //     patient.setMotDePasse(motDePasseField.getText().trim());
-    //         // }
-
-    //         new PatientDAO().updatePatient(patient);
-    //         usernameLabel.setText(patient.getNom());
-    //         mainVBox.getChildren().remove(form);
-    //         loadMedicamentsTable();
-    //     });
-
-    //     form.getChildren().addAll(
-    //         nomLabel, nomField,
-    //         prenomLabel, prenomField,
-    //         villeLabel, villeField,
-    //         emailLabel, emailField,
-    //         telephoneLabel, telephoneField,
-    //         adresseLabel, adresseField,
-    //         dateLabel, dateNaissancePicker,
-    //         sexeLabel, sexeCombo,
-    //         mdpLabel, motDePasseField,
-    //         saveButton
-    //     );
-
-    //     mainVBox.getChildren().removeIf(node -> node instanceof TableView || node instanceof VBox);
-    //     mainVBox.getChildren().add(form);
-    // }
 }
