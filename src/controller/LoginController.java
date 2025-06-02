@@ -60,7 +60,6 @@ public class LoginController {
         stage.setScene(scene);
         stage.show();
     }
-    
     @FXML
     public void GoToFormPatient(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/patient_form.fxml")) ;
@@ -85,14 +84,15 @@ public class LoginController {
         stage.show();
     }
     
-     public void goToDoctorDashboard(ActionEvent event, int idDoctor,String nomDoctor) throws IOException {
+     public void goToDoctorDashboard(ActionEvent event, Doctor doctor) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/doctor_dashboard_view.fxml"));
         Parent root = loader.load();
 
         // Récupération du contrôleur et passage du patient
         DoctorDashboardController controller = (DoctorDashboardController) loader.getController();
-        controller.setnomDoctor(nomDoctor);
-        controller.setIdDoctor(idDoctor); // méthode à créer dans PatientDashboardController
+        controller.setnomDoctor(doctor.getNom());
+        controller.setIdDoctor(doctor.getId());
+        controller.setDoctor(doctor);// méthode à créer dans PatientDashboardController
 
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -123,11 +123,11 @@ public class LoginController {
             if(rd_doctor.isSelected()){
                 Doctor doctor = DoctorDAO.checkDoctorByCniePassword(f_cnie.getText(), f_password.getText());
                 if(doctor != null){
-                    System.out.println("Connexion reussi : Bienvenue Dr."+doctor.getNom()+" "+doctor.getPrenom());
-                    goToDoctorDashboard(event,doctor.getId(),doctor.getNom());
+                          System.out.println("Connexion reussi : Bienvenue Dr."+doctor.getNom()+" "+doctor.getPrenom());
+                          goToDoctorDashboard(event,doctor);
                 }else{
-                    System.out.println("Echec de connexion");
-                    label_incorrect.setStyle("-fx-opacity : 1.0");
+                        System.out.println("Echec de connexion");
+                        label_incorrect.setStyle("-fx-opacity : 1.0");
                 }
             }else{
                 Patient patient = PatientDAO.checkPatientByCniePassword(f_cnie.getText(), f_password.getText());

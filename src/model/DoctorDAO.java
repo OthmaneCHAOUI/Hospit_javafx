@@ -116,4 +116,34 @@ public class DoctorDAO {
         }
         return doctors;
     }
+
+    public static int update(Doctor doctor) throws SQLException {
+        String sql = "UPDATE doctor SET nom = ?, prenom = ?, cnie = ?, specialite = ?, nom_cabinet = ?, telephone = ?, adresse_cabinet = ?, mot_de_passe = ? WHERE id = ?";
+        
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            
+            stmt.setString(1, doctor.getNom());
+            stmt.setString(2, doctor.getPrenom());
+            stmt.setString(3, doctor.getCnie());
+            stmt.setString(4, doctor.getSpecialite());
+            stmt.setString(5, doctor.getNomCabinet());
+            stmt.setString(6, doctor.getTelephone());
+            stmt.setString(7, doctor.getAdresseCabinet());
+            stmt.setString(8, doctor.getMotDePasse());
+            stmt.setInt(9, doctor.getId());
+
+            int rowsUpdated = stmt.executeUpdate();
+            
+            if (rowsUpdated > 0) {
+                System.out.println("Doctor mis à jour avec succès !");
+                return 1;
+            } else {
+                System.out.println("Échec de la mise à jour.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

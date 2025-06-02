@@ -20,7 +20,7 @@ public class RendezVous {
         this.raison = raison;
         this.statut = statut;
     }
-
+    
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public int getIdDoctor() { return idDoctor; }

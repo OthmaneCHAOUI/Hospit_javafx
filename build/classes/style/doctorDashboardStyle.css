@@ -13,23 +13,19 @@
 }
 .btn_chercher {
     -fx-background-color: transparent;
-    -fx-border-radius: 150;
-    -fx-cursor: hand;
     -fx-border-color: transparent;
-    -fx-background-radius: 150;
 }
 
-.btn_chercher:hover {
-    -fx-scale-x: 1.2;
-    -fx-scale-y: 1.15;
-}
 .field {
     -fx-background-color: transparent;
     -fx-border-color: #5d9b63;
     -fx-border-width: 0 0 1.5 0;
     -fx-border-radius: 0 0 0 0;
-    -fx-padding: 6px 6px 6px 12px;
+    -fx-padding : 0 0 0 28px;
 
+}
+.field:focused{
+    -fx-border-width : 1.8px;
 }
 .btn {
     -fx-background-color: #5d9b63;

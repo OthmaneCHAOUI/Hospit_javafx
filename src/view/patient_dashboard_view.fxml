@@ -70,6 +70,9 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <GridPane.margin>
+                        <Insets right="10.0" />
+                     </GridPane.margin>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="384.0" spacing="40.0" GridPane.columnIndex="1">
                             <children>

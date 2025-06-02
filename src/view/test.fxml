@@ -2,10 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,86 +17,506 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="1200.0"
+   prefHeight="700.0" prefWidth="1200.0" stylesheets="@../style/doctorDashboardStyle.css"
+   xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="controller.DoctorMTRController">
    <children>
-      <VBox layoutX="193.0" layoutY="61.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0"
+         AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="53.0" prefWidth="692.0" style="-fx-background-color: lightgreen;">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0" prefWidth="150.0" />
-                  <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="339.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="158.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
+            <AnchorPane prefHeight="700.0" prefWidth="1200.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="119.0">
+                  <GridPane alignment="CENTER" maxHeight="-Infinity"
+                     maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity"
+                     prefHeight="50.0" prefWidth="692.0" style="-fx-background-color: limegreen;"
+                     AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                     AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0"
+                           prefWidth="150.0" />
+                        <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308"
+                           minWidth="-Infinity" prefWidth="339.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308"
+                           minWidth="10.0" prefWidth="158.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
-                        <ImageView fitHeight="41.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/AppIcon.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="Hospit">
-                           <font>
-                              <Font name="System Bold" size="17.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2">
-                     <children>
-                        <Label text="username">
-                           <HBox.margin>
-                              <Insets right="10.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="35.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/326497_account_circle_icon.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1">
-                     <children>
-                        <MenuButton mnemonicParsing="false" style="-fx-background-color: transparent;" text="Médecin" textFill="WHITE">
-                           <items>
-                              <MenuItem mnemonicParsing="false" text="m1" />
-                              <MenuItem mnemonicParsing="false" text="m2" />
-                           </items>
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity"
+                           prefHeight="42.0" prefWidth="119.0">
+                           <children>
+                              <ImageView fitHeight="41.0" fitWidth="37.0" pickOnBounds="true"
+                                 preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/AppIcon.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Hospit">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308"
+                           maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="174.0"
+                           spacing="5.0" GridPane.columnIndex="2">
+                           <children>
+                              <Text fx:id="field_doctor_profile" fill="#eeeeee" opacity="0.85"
+                                 strokeType="OUTSIDE" strokeWidth="0.0" text="username">
+                                 <font>
+                                    <Font name="Sitka Banner Bold" size="17.0" />
+                                 </font>
+                                 <effect>
+                                    <Shadow blurType="GAUSSIAN" height="0.0" radius="0.0"
+                                       width="0.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Shadow>
+                                 </effect>
+                              </Text>
+                              <ImageView fx:id="profileImage" fitHeight="35.0" fitWidth="31.0"
+                                 pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/326497_account_circle_icon.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </MenuButton>
-                        <Hyperlink text="Médicaments" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Hyperlink>
-                        <Hyperlink layoutX="109.0" layoutY="10.0" text="Tests" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Hyperlink>
-                        <Hyperlink layoutX="168.0" layoutY="10.0" text="Rendez-vous">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Hyperlink>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="772.0"
+                           GridPane.columnIndex="1">
+                           <children>
+                              <Text opacity="0.85" strokeType="OUTSIDE" strokeWidth="0.0"
+                                 text="Bonjour, ">
+                                 <font>
+                                    <Font name="Sitka Banner Bold" size="30.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="nomPrenomPatient" fill="#eeeeee" opacity="0.85"
+                                 strokeType="OUTSIDE" strokeWidth="0.0" text="nomPatient">
+                                 <font>
+                                    <Font name="Sitka Banner Bold" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                                 <effect>
+                                    <Shadow blurType="GAUSSIAN" height="0.0" radius="0.0"
+                                       width="0.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Shadow>
+                                 </effect>
+                              </Text>
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
+                  </GridPane>
+                  <AnchorPane fx:id="interfaceMedicament" prefHeight="616.0" prefWidth="1200.0"
+                     AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                     AnchorPane.topAnchor="84.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" minWidth="1200.0" prefHeight="200.0"
+                           prefWidth="1200.0" spacing="20.0" AnchorPane.bottomAnchor="0.0"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                           AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                                 text="Liste des medicaments">
+                                 <font>
+                                    <Font name="Sitka Banner Bold" size="38.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <HBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="1170.0">
+                                 <children>
+                                    <AnchorPane prefHeight="55.0" prefWidth="1202.0">
+                                       <children>
+                                          <Button fx:id="btn_ajouterMedicament" layoutX="22.0"
+                                             layoutY="8.0" mnemonicParsing="false"
+                                             onAction="#Ajouter" prefHeight="36.0" prefWidth="119.0"
+                                             style="-fx-background-color: limegreen; -fx-background-radius: 10; -fx-border-radius: 10;"
+                                             styleClass="btn" text="  Ajouter">
+                                             <graphic>
+                                                <ImageView fitHeight="26.0" fitWidth="24.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image
+                                                         url="@../resources/3669476_add_circle_ic_icon.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button layoutX="985.0" layoutY="12.0"
+                                             mnemonicParsing="false" prefHeight="24.0"
+                                             prefWidth="13.0" styleClass="btn_chercher">
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="18.0"
+                                                   pickOnBounds="true" preserveRatio="true"
+                                                   styleClass="icon_chercher">
+                                                   <image>
+                                                      <Image
+                                                         url="@../resources/search-interface-symbol.png" />
+                                                   </image>
+                                                   <effect>
+                                                      <DropShadow>
+                                                         <color>
+                                                            <Color red="0.7473683953285217"
+                                                               green="0.6975438594818115"
+                                                               blue="0.6975438594818115" />
+                                                         </color>
+                                                      </DropShadow>
+                                                   </effect>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <TextField fx:id="f_rechercheMedicament" layoutX="1006.0"
+                                             layoutY="10.0" onAction="#Recherche" prefHeight="31.0"
+                                             prefWidth="170.0" promptText="Chercher Medicament"
+                                             style="-fx-border-color: limegreen;" styleClass="field"
+                                             AnchorPane.rightAnchor="44.0">
+                                             <opaqueInsets>
+                                                <Insets left="50.0" />
+                                             </opaqueInsets>
+                                          </TextField>
+                                          <Button fx:id="btn_medicament" layoutX="410.0"
+                                             layoutY="13.0" mnemonicParsing="false"
+                                             onAction="#switchToMedicament" prefHeight="34.0"
+                                             prefWidth="118.0"
+                                             style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: limegreen;"
+                                             styleClass="btn" text="Medicament">
+                                             <font>
+                                                <Font size="11.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn_test" layoutX="538.0" layoutY="13.0"
+                                             mnemonicParsing="false" onAction="#switchToTest"
+                                             prefHeight="34.0" prefWidth="125.0"
+                                             style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: limegreen;"
+                                             styleClass="btn" text="Test Medicale">
+                                             <font>
+                                                <Font size="11.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btn_rendezvous" layoutX="673.0"
+                                             layoutY="13.0" mnemonicParsing="false"
+                                             onAction="#switchToRendezVous" prefHeight="34.0"
+                                             prefWidth="118.0"
+                                             style="-fx-background-radius: 10; -fx-background-color: limegreen; -fx-border-radius: 10;"
+                                             styleClass="btn" text="RendezVous">
+                                             <font>
+                                                <Font size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="table_patientM" maxHeight="1.7976931348623157E308"
+                                 maxWidth="1450.0" minHeight="410.0" prefHeight="410.0"
+                                 prefWidth="1170.0">
+                                 <columns>
+                                    <TableColumn fx:id="Medicament_column_id"
+                                       maxWidth="50.39999008178711" minWidth="40.79998779296875"
+                                       prefWidth="50.39999008178711" text="ID" />
+                                    <TableColumn fx:id="Medicament_column_nom"
+                                       maxWidth="252.79999160766602" minWidth="120.0"
+                                       prefWidth="252.79999160766602" text="Nom" />
+                                    <TableColumn fx:id="Medicament_column_date" maxWidth="150.0"
+                                       minWidth="48.0" prefWidth="109.60003662109375"
+                                       text="Date_Debut" />
+                                    <TableColumn fx:id="Medicament_column_periode"
+                                       maxWidth="230.39999389648438" minWidth="120.0"
+                                       prefWidth="172.80001831054688" text="Periode" />
+                                    <TableColumn fx:id="Medicament_column_description"
+                                       maxWidth="1.7976931348623157E308"
+                                       minWidth="112.79998779296875" prefWidth="469.60009765625"
+                                       text="Description " />
+                                    <TableColumn fx:id="Medicament_column_action" maxWidth="200.0"
+                                       minWidth="106.4000244140625" prefWidth="106.4000244140625"
+                                       text="Action" />
+                                 </columns>
+                                 <VBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </VBox.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="interfaceTest" layoutX="10.0" layoutY="10.0" prefHeight="616.0"
+                     prefWidth="1200.0" visible="false" AnchorPane.leftAnchor="0.0"
+                     AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="84.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" minWidth="1200.0" prefHeight="200.0"
+                           prefWidth="1200.0" spacing="20.0" AnchorPane.bottomAnchor="0.0"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                           AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                                 text="Liste des tests medicale">
+                                 <font>
+                                    <Font name="Sitka Banner Bold" size="38.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <HBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="1170.0">
+                                 <children>
+                                    <AnchorPane prefHeight="55.0" prefWidth="1202.0">
+                                       <children>
+                                          <Button fx:id="btn_exporterTest" layoutX="106.0"
+                                             layoutY="8.0" mnemonicParsing="false"
+                                             onAction="#Exporter" prefHeight="26.0"
+                                             prefWidth="126.0" styleClass="btn" text="  Exporter"
+                                             AnchorPane.leftAnchor="106.0">
+                                             <graphic>
+                                                <ImageView fitHeight="18.0" fitWidth="18.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../resources/export.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="btn_ajouterTest" layoutX="288.0"
+                                             layoutY="8.0" mnemonicParsing="false"
+                                             onAction="#Ajouter" prefHeight="31.0" prefWidth="125.0"
+                                             styleClass="btn" text="  Ajouter">
+                                             <graphic>
+                                                <ImageView fitHeight="18.0" fitWidth="18.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../resources/add.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button layoutX="985.0" layoutY="12.0"
+                                             mnemonicParsing="false" prefHeight="24.0"
+                                             prefWidth="13.0" styleClass="btn_chercher">
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="18.0"
+                                                   pickOnBounds="true" preserveRatio="true"
+                                                   styleClass="icon_chercher">
+                                                   <image>
+                                                      <Image
+                                                         url="@../resources/search-interface-symbol.png" />
+                                                   </image>
+                                                   <effect>
+                                                      <DropShadow>
+                                                         <color>
+                                                            <Color red="0.7473683953285217"
+                                                               green="0.6975438594818115"
+                                                               blue="0.6975438594818115" />
+                                                         </color>
+                                                      </DropShadow>
+                                                   </effect>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <TextField fx:id="f_rechercheTest" layoutX="1006.0"
+                                             layoutY="10.0" onAction="#Recherche" prefHeight="31.0"
+                                             prefWidth="170.0" promptText="Chercher Test"
+                                             styleClass="field" AnchorPane.rightAnchor="44.0">
+                                             <opaqueInsets>
+                                                <Insets left="50.0" />
+                                             </opaqueInsets>
+                                          </TextField>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="table_patientT" maxHeight="1.7976931348623157E308"
+                                 maxWidth="1450.0" minHeight="410.0" prefHeight="410.0"
+                                 prefWidth="1170.0">
+                                 <columns>
+                                    <TableColumn fx:id="Test_column_id" maxWidth="50.39999008178711"
+                                       minWidth="40.79998779296875" prefWidth="50.39999008178711"
+                                       text="ID" />
+                                    <TableColumn fx:id="Test_column_nom"
+                                       maxWidth="252.79999160766602" minWidth="120.0"
+                                       prefWidth="230.4000244140625" text="Nom" />
+                                    <TableColumn fx:id="Test_column_result"
+                                       maxWidth="397.5999298095703" minWidth="48.0"
+                                       prefWidth="361.5999755859375" text="Resultat" />
+                                    <TableColumn fx:id="Test_column_date"
+                                       maxWidth="366.3999938964844" minWidth="34.4000244140625"
+                                       prefWidth="156.00006103515625" text="Date_Test" />
+                                    <TableColumn fx:id="Test_column_type"
+                                       maxWidth="1.7976931348623157E308"
+                                       minWidth="112.79998779296875" prefWidth="127.99993896484375"
+                                       text="Type_Doctor" />
+                                    <TableColumn fx:id="Test_column_statut"
+                                       maxWidth="1.7976931348623157E308"
+                                       minWidth="112.79998779296875" prefWidth="140.800048828125"
+                                       text="Statut" />
+                                    <TableColumn fx:id="Test_column_action" maxWidth="200.0"
+                                       minWidth="106.4000244140625" prefWidth="106.4000244140625"
+                                       text="Action" />
+                                 </columns>
+                                 <VBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </VBox.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="interfaceRendezVous" layoutX="20.0" layoutY="20.0"
+                     prefHeight="616.0" prefWidth="1200.0" visible="false"
+                     AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                     AnchorPane.topAnchor="84.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" minWidth="1200.0" prefHeight="200.0"
+                           prefWidth="1200.0" spacing="20.0" AnchorPane.bottomAnchor="0.0"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                           AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                                 text="Liste des RendezVous">
+                                 <font>
+                                    <Font name="Sitka Banner Bold" size="38.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
+                              </Text>
+                              <HBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="1170.0">
+                                 <children>
+                                    <AnchorPane prefHeight="55.0" prefWidth="1202.0">
+                                       <children>
+                                          <Button fx:id="btn_exporterRendez" layoutX="106.0"
+                                             layoutY="8.0" mnemonicParsing="false"
+                                             onAction="#Exporter" prefHeight="26.0"
+                                             prefWidth="126.0" styleClass="btn" text="  Exporter"
+                                             AnchorPane.leftAnchor="106.0">
+                                             <graphic>
+                                                <ImageView fitHeight="18.0" fitWidth="18.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../resources/export.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button fx:id="btn_ajouterRendez" layoutX="288.0"
+                                             layoutY="8.0" mnemonicParsing="false"
+                                             onAction="#Ajouter" prefHeight="31.0" prefWidth="125.0"
+                                             styleClass="btn" text="  Ajouter">
+                                             <graphic>
+                                                <ImageView fitHeight="18.0" fitWidth="18.0"
+                                                   pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../resources/add.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <Button layoutX="985.0" layoutY="12.0"
+                                             mnemonicParsing="false" prefHeight="24.0"
+                                             prefWidth="13.0" styleClass="btn_chercher">
+                                             <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="18.0"
+                                                   pickOnBounds="true" preserveRatio="true"
+                                                   styleClass="icon_chercher">
+                                                   <image>
+                                                      <Image
+                                                         url="@../resources/search-interface-symbol.png" />
+                                                   </image>
+                                                   <effect>
+                                                      <DropShadow>
+                                                         <color>
+                                                            <Color red="0.7473683953285217"
+                                                               green="0.6975438594818115"
+                                                               blue="0.6975438594818115" />
+                                                         </color>
+                                                      </DropShadow>
+                                                   </effect>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                          <TextField fx:id="f_rechercheRendez" layoutX="1006.0"
+                                             layoutY="10.0" onAction="#Recherche" prefHeight="31.0"
+                                             prefWidth="170.0" promptText="Chercher RendezVous"
+                                             styleClass="field" AnchorPane.rightAnchor="44.0">
+                                             <opaqueInsets>
+                                                <Insets left="50.0" />
+                                             </opaqueInsets>
+                                          </TextField>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="table_patientR" maxHeight="1.7976931348623157E308"
+                                 maxWidth="1450.0" minHeight="410.0" prefHeight="410.0"
+                                 prefWidth="1170.0">
+                                 <columns>
+                                    <TableColumn fx:id="Rendez_column_id"
+                                       maxWidth="50.39999008178711" minWidth="40.79998779296875"
+                                       prefWidth="50.39999008178711" text="ID" />
+                                    <TableColumn fx:id="Rendez_column_date"
+                                       maxWidth="252.79999160766602" minWidth="120.0"
+                                       prefWidth="217.59997940063477" text="Date" />
+                                    <TableColumn fx:id="Rendez_column_heure"
+                                       maxWidth="397.5999298095703" minWidth="48.0"
+                                       prefWidth="229.5999755859375" text="Heure " />
+                                    <TableColumn fx:id="Rendez_column_raison"
+                                       maxWidth="404.00006103515625" minWidth="34.4000244140625"
+                                       prefWidth="404.00006103515625" text="Raison " />
+                                    <TableColumn fx:id="Rendez_column_statut"
+                                       maxWidth="1.7976931348623157E308"
+                                       minWidth="112.79998779296875" prefWidth="140.800048828125"
+                                       text="Statut" />
+                                    <TableColumn fx:id="Rendez_column_action" maxWidth="200.0"
+                                       minWidth="106.4000244140625" prefWidth="106.4000244140625"
+                                       text="Action" />
+                                 </columns>
+                                 <VBox.margin>
+                                    <Insets left="15.0" right="15.0" />
+                                 </VBox.margin>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
                </children>
-            </GridPane>
+            </AnchorPane>
          </children>
       </VBox>
    </children>

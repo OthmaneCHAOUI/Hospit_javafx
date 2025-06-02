@@ -9,11 +9,23 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.DoctorPatient;
 import model.DoctorPatientDAO;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
+
+
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 
 import javafx.scene.layout.HBox;
 import javafx.scene.image.Image;
@@ -21,9 +33,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
+
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Doctor;
+import model.DoctorDAO;
 
 public class DoctorDashboardController {
 
@@ -75,6 +90,9 @@ public class DoctorDashboardController {
     private int idDoctor;
     private String nomDoctor;  
     
+    public int getidDoctor() {
+        return idDoctor;
+    }
     public String getnomDoctor() {
         return nomDoctor;
     }
@@ -105,6 +123,7 @@ public class DoctorDashboardController {
             column_adresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
             column_sexe.setCellValueFactory(new PropertyValueFactory<>("sexe"));
             addActionButtonsToTable();
+            
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -164,14 +183,34 @@ public class DoctorDashboardController {
     column_action.setCellFactory(cellFactory);
 }
 
-private void voirPatient(DoctorPatient patient) {
-    // Affiche les détails du patient (tu peux ouvrir une nouvelle fenêtre ou un dialogue)
-    System.out.println("Voir patient : " + patient.getNom() + " " + patient.getPrenom());
-    // TODO : Implémenter la logique d'affichage des détails
+public void voirPatient(DoctorPatient patient) {
+    try {
+        // Charger le FXML
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DoctorMTR_view.fxml"));
+        Parent root = loader.load();
+
+        // Récupérer le contrôleur
+        DoctorMTRController controller = loader.getController();
+
+        // Passer idDoctor et cnie au contrôleur
+        controller.setDoctorId(idDoctor);
+        controller.setCniePatient(patient.getCnie());
+        controller.setNomPatient(patient.getNom());
+        controller.setPrenomPatient(patient.getPrenom());
+
+        // Créer la nouvelle scène
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
 }
 
+
+
 private void supprimerPatient(DoctorPatient patient) {
-    // Confirmer la suppression
     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
     alert.setTitle("Confirmation suppression");
     alert.setHeaderText(null);
@@ -194,7 +233,7 @@ private void supprimerPatient(DoctorPatient patient) {
         table_patient.setItems(patientsList);
     }
 
-    @FXML
+@FXML
 public void Ajouter(ActionEvent event) {
     Stage dialogStage = new Stage();
     dialogStage.setTitle("Ajouter un patient");
@@ -229,19 +268,39 @@ public void Ajouter(ActionEvent event) {
     Button btnAjouter = new Button("Ajouter");
     Button btnAnnuler = new Button("Annuler");
 
-    VBox vbox = new VBox(10);
-    vbox.setPadding(new Insets(15));
-    vbox.getChildren().addAll(
-        new Label("Nom:"), tfNom,
-        new Label("Prénom:"), tfPrenom,
-        new Label("Date de naissance:"), dpDateNaissance,
-        new Label("CNI:"), tfCnie,
-        new Label("Ville:"), tfVille,
-        new Label("Téléphone:"), tfTelephone,
-        new Label("Adresse:"), tfAdresse,
-        new Label("Sexe:"), cbSexe,
-        new HBox(10, btnAnnuler, btnAjouter)
-    );
+    // Espacement entre les éléments dans les HBox
+    HBox hbox1 = new HBox(10, tfNom, tfVille);
+    HBox hbox2 = new HBox(10, tfPrenom, tfTelephone);
+    HBox hbox3 = new HBox(10, dpDateNaissance, tfAdresse);
+    HBox hbox4 = new HBox(10, tfCnie, cbSexe);
+    HBox hbox5 = new HBox(15, btnAjouter, btnAnnuler);
+
+    // Padding pour chaque HBox (espacement intérieur)
+    hbox1.setPadding(new Insets(5));
+    hbox2.setPadding(new Insets(5));
+    hbox3.setPadding(new Insets(5));
+    hbox4.setPadding(new Insets(5));
+    hbox5.setPadding(new Insets(10));
+
+    // Margin (marge extérieure) exemple : on ajoute une marge autour de tfNom et tfVille dans hbox1
+    HBox.setMargin(tfNom, new Insets(0, 10, 0, 0));  // marge droite de 10px
+    HBox.setMargin(tfPrenom, new Insets(0, 10, 0, 0));
+    HBox.setMargin(dpDateNaissance, new Insets(0, 10, 0, 0));
+    HBox.setMargin(tfCnie, new Insets(0, 10, 0, 0));
+    HBox.setMargin(btnAjouter, new Insets(0, 10, 0, 0));
+
+    VBox vbox = new VBox(15, hbox1, hbox2, hbox3, hbox4, hbox5);
+
+    // Padding pour le VBox (espace intérieur tout autour)
+    vbox.setPadding(new Insets(20));
+
+    // Bordure grise, solide, coins arrondis 10px, épaisseur 2px
+    vbox.setBorder(new Border(new BorderStroke(
+        Color.GRAY,
+        BorderStrokeStyle.SOLID,
+        new CornerRadii(10),
+        new BorderWidths(2)
+    )));
 
     btnAnnuler.setOnAction(e -> dialogStage.close());
 
@@ -268,7 +327,7 @@ public void Ajouter(ActionEvent event) {
             patient.setAdresse(tfAdresse.getText());
             patient.setSexe(cbSexe.getValue());
 
-            // ⚠️ Vérifie que idDoctor est bien initialisé
+            // ⚠ Vérifie que idDoctor est bien initialisé
             if (idDoctor == 0) {
                 throw new IllegalStateException("Identifiant du médecin non défini.");
             }
@@ -300,14 +359,140 @@ public void Ajouter(ActionEvent event) {
     dialogStage.showAndWait();
 }
 
+
     @FXML
     void Exporter(ActionEvent event) {
         System.out.println("Exporter les données (fonction non implémentée)");
     }
-
+    private Doctor currentDoctor ;
+    public void setDoctor(Doctor doctor){
+        this.currentDoctor = doctor ;
+    }
     @FXML
     void Parametre(ActionEvent event) {
-        System.out.println("Paramètres");
+        Stage dialogStage = new Stage();
+    dialogStage.setTitle("Modifier Votre info");
+    dialogStage.initModality(Modality.APPLICATION_MODAL);
+    dialogStage.setResizable(false);
+
+    TextField tfNom = new TextField();
+    tfNom.setPromptText("Nom");
+    tfNom.setText(currentDoctor.getNom());
+    
+    TextField tfNomCabinet = new TextField();
+    tfNomCabinet.setPromptText("Nom de cabinet");
+    tfNomCabinet.setText(currentDoctor.getNomCabinet());
+    
+    TextField tfPrenom = new TextField();
+    tfPrenom.setPromptText("Prenom");
+    tfPrenom.setText(currentDoctor.getPrenom());
+    
+    TextField tfAdresse = new TextField();
+    tfAdresse.setPromptText("Adresse de Cabinet");
+    tfAdresse.setText(currentDoctor.getAdresseCabinet());
+
+    TextField tfCnie = new TextField();
+    tfCnie.setPromptText("CNIE");
+    tfCnie.setText(currentDoctor.getCnie());
+
+    TextField tftele = new TextField();
+    tftele.setPromptText("Téléphone");
+    tftele.setText(currentDoctor.getTelephone());
+    
+    TextField tfSpec = new TextField();
+    tfSpec.setPromptText("Spécialité");
+    tfSpec.setText(currentDoctor.getSpecialite());
+    
+    TextField tfmotPasse = new TextField();
+    tfmotPasse.setPromptText("Mot de passe");
+    tfmotPasse.setText(currentDoctor.getMotDePasse());
+
+    Button btnAjouter = new Button("Modifier");
+    Button btnAnnuler = new Button("Annuler");
+
+    // Espacement entre les éléments dans les HBox
+    HBox hbox1 = new HBox(10, tfNom, tfNomCabinet);
+    HBox hbox2 = new HBox(10, tfPrenom, tfAdresse);
+    HBox hbox3 = new HBox(10, tfCnie, tftele);
+    HBox hbox4 = new HBox(10, tfSpec, tfmotPasse);
+    HBox hbox5 = new HBox(15, btnAjouter, btnAnnuler);
+
+    // Padding pour chaque HBox (espacement intérieur)
+    hbox1.setPadding(new Insets(5));
+    hbox2.setPadding(new Insets(5));
+    hbox3.setPadding(new Insets(10));
+
+    // Margin (marge extérieure) exemple : on ajoute une marge autour de tfNom et tfVille dans hbox1
+    HBox.setMargin(tfNom, new Insets(0, 10, 0, 0));  // marge droite de 10px
+    HBox.setMargin(tfPrenom, new Insets(0, 10, 0, 0));
+    HBox.setMargin(tfCnie, new Insets(0, 10, 0, 0));
+    HBox.setMargin(tfSpec, new Insets(0, 10, 0, 0));
+    HBox.setMargin(btnAjouter, new Insets(0, 10, 0, 0));
+
+    VBox vbox = new VBox(15, hbox1, hbox2, hbox3,hbox4,hbox5);
+
+    // Padding pour le VBox (espace intérieur tout autour)
+    vbox.setPadding(new Insets(20));
+
+    // Bordure grise, solide, coins arrondis 10px, épaisseur 2px
+    vbox.setBorder(new Border(new BorderStroke(
+        Color.GRAY,
+        BorderStrokeStyle.SOLID,
+        new CornerRadii(10),
+        new BorderWidths(2)
+    )));
+
+    btnAnnuler.setOnAction(e -> dialogStage.close());
+
+    btnAjouter.setOnAction(e -> {
+        // Vérification des champs obligatoires
+        if (tfNom.getText().isEmpty() || tfPrenom.getText().isEmpty() ||
+                tfCnie.getText().isEmpty()|| tfSpec.getText().isEmpty()||
+                tfmotPasse.getText().isEmpty() ||tfNomCabinet.getText() .isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Champs manquants");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez remplir tous les champs obligatoires (Nom ,Prenom , Nom de Cabinet , CNIE ,Spécialité, Mot de passe ");
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            Doctor newdoctor = new Doctor();
+            newdoctor.setNom(tfNom.getText());
+            newdoctor.setPrenom(tfPrenom.getText());
+            newdoctor.setMotDePasse(tfmotPasse.getText());
+            newdoctor.setAdresseCabinet(tfAdresse.getText()); // LocalDate
+            newdoctor.setCnie(tfCnie.getText());
+            newdoctor.setNomCabinet(tfNomCabinet.getText());
+            newdoctor.setSpecialite(tfSpec.getText());
+            newdoctor.setTelephone(tftele.getText());
+            newdoctor.setId(idDoctor);
+            field_doctor.setText(tfNom.getText());
+
+            DoctorDAO.update(newdoctor); // Appel DAO
+            dialogStage.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur SQL");
+            alert.setHeaderText("Erreur lors de l'ajout du medicament");
+            alert.setContentText("Détails : " + ex.getMessage());
+            alert.showAndWait();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Erreur inattendue");
+            alert.setContentText("Détails : " + ex.getMessage());
+            alert.showAndWait();
+        }
+    });
+
+    Scene scene = new Scene(vbox);
+    dialogStage.setScene(scene);
+    dialogStage.showAndWait();
     }
 
     @FXML

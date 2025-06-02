@@ -72,6 +72,7 @@ public class PatientDashboardController {
                 item.setOnAction(e -> {
                     currentDoctor = doc;
                     loadMedicamentsTable();
+                    doctorMenu.setText(currentDoctor.getNom() + " " + currentDoctor.getPrenom());
                 });
                 doctorMenu.getItems().add(item);
             }
