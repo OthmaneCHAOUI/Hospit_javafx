@@ -1,0 +1,28 @@
+.field {
+    -fx-background-color: transparent;
+    -fx-border-color: limegreen;
+    -fx-border-width: 0 0 1.5 0;
+    -fx-border-radius: 0 0 0 0;
+    /* -fx-padding: 6px 6px 6px 12px; */
+}
+
+.label {
+    -fx-font-weight: bold;
+    -fx-font-size: 13;
+}
+
+.enregi-button{
+    -fx-background-color: limegreen;
+    -fx-text-fill: white;
+    -fx-border-radius: 50px;
+    -fx-pref-height: 50;
+    -fx-pref-width: 100;
+    -fx-cursor: hand;
+}
+
+.enregi-button:hover{
+    -fx-background-color: dodgerblue;
+    -fx-text-fill: white;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
