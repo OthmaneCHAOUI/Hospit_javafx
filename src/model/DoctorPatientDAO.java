@@ -35,31 +35,29 @@ public class DoctorPatientDAO {
         }
         return doctors;
     }
-}
 
     public static void inserer(DoctorPatient patient, int idDoctor) {
-    String sql = "INSERT INTO Doctor_Patient (nom, prenom, date_naissance, cnie, ville, telephone, adresse, sexe, id_doctor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    try (Connection conn = DBConnection.getConnection();
-         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        String sql = "INSERT INTO Doctor_Patient (nom, prenom, date_naissance, cnie, ville, telephone, adresse, sexe, id_doctor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-        pstmt.setString(1, patient.getNom());
-        pstmt.setString(2, patient.getPrenom());
-        pstmt.setDate(3, java.sql.Date.valueOf(patient.getDateNaissance()));
-        pstmt.setString(4, patient.getCnie());
-        pstmt.setString(5, patient.getVille());
-        pstmt.setString(6, patient.getTelephone());
-        pstmt.setString(7, patient.getAdresse());
-        pstmt.setString(8, patient.getSexe());
-        pstmt.setInt(9, idDoctor);
+            pstmt.setString(1, patient.getNom());
+            pstmt.setString(2, patient.getPrenom());
+            pstmt.setDate(3, java.sql.Date.valueOf(patient.getDateNaissance()));
+            pstmt.setString(4, patient.getCnie());
+            pstmt.setString(5, patient.getVille());
+            pstmt.setString(6, patient.getTelephone());
+            pstmt.setString(7, patient.getAdresse());
+            pstmt.setString(8, patient.getSexe());
+            pstmt.setInt(9, idDoctor);
 
-        pstmt.executeUpdate();
+            pstmt.executeUpdate();
 
-        System.out.println("Patient ajouté avec succès !");
-    } catch (SQLException e) {
-        e.printStackTrace();
+            System.out.println("Patient ajouté avec succès !");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-}
-
 
     public static List<DoctorPatient> getPatients(int idDoctor) throws SQLException {
         List<DoctorPatient> doctorPatients = new ArrayList<>();
@@ -86,7 +84,7 @@ public class DoctorPatientDAO {
         return doctorPatients;
     }
     
-    public static void update(DoctorPatient newdoctorPatient,String cniePatient,int idDoctor) {
+    public static void update(DoctorPatient newdoctorPatient, String cniePatient, int idDoctor) {
         String sql = "UPDATE Doctor_Patient SET nom=?, prenom=?, date_naissance=?,ville=?,telephone=?,adresse=?,sexe=? WHERE cnie=? AND id_doctor=?";
         try (Connection conn = DBConnection.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -113,25 +111,23 @@ public class DoctorPatientDAO {
         }
     }
     
-
     public static void delete(String cniePatient, int idDoctor) {
-    String sql = "DELETE FROM Doctor_Patient WHERE cnie = ? AND id_doctor = ?";
-    try (Connection conn = DBConnection.getConnection();
-         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        String sql = "DELETE FROM Doctor_Patient WHERE cnie = ? AND id_doctor = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-        pstmt.setString(1, cniePatient);
-        pstmt.setInt(2, idDoctor);
-        int rowsAffected = pstmt.executeUpdate();
+            pstmt.setString(1, cniePatient);
+            pstmt.setInt(2, idDoctor);
+            int rowsAffected = pstmt.executeUpdate();
 
-        if (rowsAffected > 0) {
-            System.out.println("Le patient a été supprimé avec succès pour ce médecin.");
-        } else {
-            System.out.println("Aucun patient trouvé avec cette CNIE et cet ID médecin.");
+            if (rowsAffected > 0) {
+                System.out.println("Le patient a été supprimé avec succès pour ce médecin.");
+            } else {
+                System.out.println("Aucun patient trouvé avec cette CNIE et cet ID médecin.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-    } catch (SQLException e) {
-        e.printStackTrace();
     }
-}
-
 }

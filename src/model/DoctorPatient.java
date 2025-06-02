@@ -32,6 +32,17 @@ public class DoctorPatient {
         this.sexe = sexe;
     }
 
+    public DoctorPatient(String nom, String prenom, LocalDate dateNaissance, String cnie, String ville, String telephone, String adresse, String sexe) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dateNaissance = dateNaissance;
+        this.cnie = cnie;
+        this.ville = ville;
+        this.telephone = telephone;
+        this.adresse = adresse;
+        this.sexe = sexe;
+    }
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public int getIdDoctor() { return idDoctor; }
