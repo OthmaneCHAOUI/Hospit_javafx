@@ -3,13 +3,14 @@ package model;
 import java.time.LocalDate;
 
 public class TestMedical {
-    private int idDoctor;
+    private int id,idDoctor;
     private String cniePatient, typeTest, resultat, typeDoctor, statut;
     private LocalDate dateTest;
 
-    public TestMedical() {}
-
-    public TestMedical(String typeTest, String resultat, LocalDate dateTest, String typeDoctor, String statut) {
+    public TestMedical(String string, String string1, LocalDate toLocalDate, String string2) {}
+public TestMedical(){}
+    public TestMedical(int id,String typeTest, String resultat, LocalDate dateTest, String typeDoctor, String statut) {
+        this.id = id ;
         this.typeTest = typeTest;
         this.resultat = resultat;
         this.dateTest = dateTest;
@@ -17,6 +18,8 @@ public class TestMedical {
         this.statut = statut;
     }
 
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public int getIdDoctor() { return idDoctor; }
     public void setIdDoctor(int idDoctor) { this.idDoctor = idDoctor; }
     public String getCniePatient() { return cniePatient; }

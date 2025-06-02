@@ -70,7 +70,7 @@ public class LoginController {
         stage.show();
     }
     
-    /*public void goToPatientDashboard(ActionEvent event, Patient patient) throws IOException {
+    public void goToPatientDashboard(ActionEvent event, Patient patient) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/patient_dashboard_view.fxml"));
         Parent root = loader.load();
 
@@ -82,9 +82,9 @@ public class LoginController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-    }*/
+    }
     
-     public void goToDoctorDashboard(ActionEvent event, int idDoctor,String nomDoctor) throws IOException {
+    public void goToDoctorDashboard(ActionEvent event, int idDoctor,String nomDoctor) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/doctor_dashboard_view.fxml"));
         Parent root = loader.load();
 
@@ -132,7 +132,7 @@ public class LoginController {
                 Patient patient = PatientDAO.check(f_cnie.getText(), f_password.getText());
                 if(patient != null){
                           System.out.println("Connexion reussi : Bienvenue "+patient.getNom()+" "+patient.getPrenom());
-                          //goToPatientDashboard(event, patient);
+                          goToPatientDashboard(event, patient);
                 }else{
                         System.out.println("Echec de connexion");
                         label_incorrect.setStyle("-fx-opacity : 1.0");

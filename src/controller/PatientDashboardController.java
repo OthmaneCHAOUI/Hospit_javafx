@@ -18,7 +18,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class PatientDashboardController {
-    /*@FXML
+    @FXML
     private Label usernameLabel;
     @FXML
     private ImageView profileImage;
@@ -241,5 +241,5 @@ public class PatientDashboardController {
 
         mainVBox.getChildren().removeIf(node -> node instanceof TableView || node instanceof VBox);
         mainVBox.getChildren().add(form);
-    }*/
+    }
 }

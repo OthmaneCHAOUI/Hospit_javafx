@@ -9,7 +9,8 @@ public class Medicament {
 
     public Medicament() {}
 
-    public Medicament(String nom, LocalDate dateDebut, int periode, String description) {
+    public Medicament(int id,String nom, LocalDate dateDebut, int periode, String description) {
+        this.id = id;
         this.nom = nom;
         this.dateDebut = dateDebut;
         this.periode = periode;

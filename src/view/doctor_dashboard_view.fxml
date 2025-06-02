@@ -18,7 +18,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="1200.0" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../style/doctorDashboardStyle.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DoctorDashboardController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -137,9 +136,9 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button layoutX="970.0" layoutY="12.0" mnemonicParsing="false" styleClass="btn_chercher">
+                                    <Button layoutX="985.0" layoutY="12.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="13.0" styleClass="btn_chercher">
                                        <graphic>
-                                          <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" styleClass="icon_chercher">
                                              <image>
                                                 <Image url="@../resources/search-interface-symbol.png" />
                                              </image>

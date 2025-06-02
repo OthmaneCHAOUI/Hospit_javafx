@@ -4,20 +4,23 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class RendezVous {
-    private int idDoctor;
+    private int id,idDoctor;
     private String cniePatient, raison, statut;
     private LocalDate dateRendezVous;
     private LocalTime heure;
 
     public RendezVous() {}
 
-    public RendezVous(LocalDate dateRendezVous, LocalTime heure, String raison, String statut) {
+    public RendezVous(int id,LocalDate dateRendezVous, LocalTime heure, String raison, String statut) {
+        this.id = id ;
         this.dateRendezVous = dateRendezVous;
         this.heure = heure;
         this.raison = raison;
         this.statut = statut;
     }
-
+    
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public int getIdDoctor() { return idDoctor; }
     public void setIdDoctor(int idDoctor) { this.idDoctor = idDoctor; }
     public String getCniePatient() { return cniePatient; }
