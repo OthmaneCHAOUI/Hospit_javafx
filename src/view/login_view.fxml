@@ -9,11 +9,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
@@ -23,31 +25,45 @@
    <left>
       <AnchorPane prefHeight="550.0" prefWidth="450.0" styleClass="main_color" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="186.0" fitWidth="248.0" layoutX="132.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view-bordered">
+            <ImageView fitHeight="186.0" fitWidth="248.0" layoutX="132.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/AppIcon.png" />
                </image>
+               <effect>
+                  <DropShadow spread="0.03">
+                     <color>
+                        <Color red="0.7686274647712708" green="0.7686274647712708" blue="0.7686274647712708" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </ImageView>
             <Text layoutX="156.0" layoutY="341.0" opacity="0.85" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-title" text="HOSPIT">
                <font>
                   <Font name="Sitka Banner Bold" size="19.0" />
                </font>
                <fill>
-                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                  <LinearGradient cycleMethod="REPEAT" endX="0.06439395564975155" endY="0.20075754776145463" proportional="false" startX="0.4583333116589171" startY="0.7007575757575757">
                      <stops>
                         <Stop>
                            <color>
-                              <Color red="0.4526315927505493" green="0.11734892427921295" blue="0.11734892427921295" />
+                              <Color />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.07290448248386383" green="0.0941130593419075" blue="0.17894737422466278" />
+                              <Color green="0.04313725605607033" blue="0.003921568859368563" />
                            </color>
                         </Stop>
                      </stops>
-                  </RadialGradient>
+                  </LinearGradient>
                </fill>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </Text>
             <Text layoutX="78.0" layoutY="398.0" nodeOrientation="RIGHT_TO_LEFT" scaleZ="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre santé, notre priorité numérique" x="45.0">
                <font>
@@ -89,13 +105,13 @@
          <children>
             <ImageView fitHeight="19.0" fitWidth="17.0" layoutX="123.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@resources/user.png" />
+                  <Image url="@../resources/user.png" />
                </image>
             </ImageView>
             <TextField fx:id="f_cnie" layoutX="159.0" layoutY="210.0" prefHeight="32.0" prefWidth="159.0" promptText="CNIE" styleClass="field" />
-            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="123.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="123.0" layoutY="291.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@resources/iconmonstr-key-8-48.png" />
+                  <Image url="@../resources/iconmonstr-key-8-48.png" />
                </image>
             </ImageView>
             <PasswordField fx:id="f_password" layoutX="159.0" layoutY="278.0" prefHeight="32.0" prefWidth="158.0" promptText="Password" styleClass="field" />
@@ -108,6 +124,13 @@
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </Text>
             <Hyperlink fx:id="hyper_doctor" layoutX="231.0" layoutY="501.0" onAction="#GoToFormDocteur" opacity="0.9" prefHeight="26.0" prefWidth="165.0" text="Creer Compte Docteur" textFill="#5d9b63">
                <font>
@@ -132,20 +155,17 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </RadioButton>
-            <ImageView fitHeight="39.0" fitWidth="43.0" layoutX="247.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="99.0" fitWidth="108.0" layoutX="176.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@resources/user.png" />
+                  <Image url="@../resources/group.png" />
                </image>
-            </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="43.0" layoutX="178.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/user.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="59.0" fitWidth="57.0" layoutX="204.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/user.png" />
-               </image>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </ImageView>
          </children>
       </AnchorPane>

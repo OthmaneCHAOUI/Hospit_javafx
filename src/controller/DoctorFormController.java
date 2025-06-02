@@ -105,7 +105,7 @@ public class DoctorFormController {
              PauseTransition pause = new PauseTransition(Duration.seconds(2));
              pause.setOnFinished(e -> {
                  try{
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Login.fxml")) ;
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/connexion_view.fxml")) ;
                     Parent root = loader.load();
                     Scene scene = new Scene(root);
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -117,7 +117,10 @@ public class DoctorFormController {
              });
              pause.play();
          }
-         else{
+         else if(etat == -1){
+             label_error_reussi.setStyle("-fx-opacity : 1.0;-fx-text-fill: red");
+             label_error_reussi.setText("Un compte existe déjà avec ce CNIE.");
+         }else{
              label_error_reussi.setStyle("-fx-opacity : 1.0;-fx-text-fill: red");
              label_error_reussi.setText("Erreur lors de la création du compte. Veuillez réessayer.");
          }

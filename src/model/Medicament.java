@@ -19,9 +19,7 @@ public class Medicament {
         this.description = description;
     }
 
-    public Medicament(int idDoctor, String cniePatient, String nom, LocalDate dateDebut, int periode, String description) {
-        this.idDoctor = idDoctor;
-        this.cniePatient = cniePatient;
+    public Medicament(String nom, LocalDate dateDebut, int periode, String description) {
         this.nom = nom;
         this.dateDebut = dateDebut;
         this.periode = periode;

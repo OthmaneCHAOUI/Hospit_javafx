@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,10 +16,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1055.0" stylesheets="@../style/formPatient.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PatientFormController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" stylesheets="@../style/formPatient.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PatientFormController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="250.0" prefWidth="250.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="650.0" prefWidth="650.0" />
@@ -29,15 +33,43 @@
       <RowConstraints maxHeight="160.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <AnchorPane maxHeight="80.0" maxWidth="500.0" minHeight="60.0" minWidth="250.0" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: limegreen;" GridPane.hgrow="SOMETIMES" />
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="390.0" minWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="390.0" prefWidth="250.0" GridPane.rowIndex="1">
+      <AnchorPane maxHeight="80.0" maxWidth="500.0" minHeight="60.0" minWidth="250.0" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.hgrow="SOMETIMES">
          <children>
-            <VBox alignment="CENTER" layoutY="-39.2" maxHeight="800.0" maxWidth="450.0" minWidth="250.0" prefHeight="488.0" prefWidth="250.0" spacing="45.0" style="-fx-background-color: limegreen;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Button fx:id="btn_retour" mnemonicParsing="false" onAction="#ButtonRetour" prefHeight="33.0" prefWidth="78.0" styleClass="btn_retour">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="56.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/211618_c_left_arrow_icon.png" />
+                     </image>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children></AnchorPane>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="500.0" minHeight="390.0" minWidth="250.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="390.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="1">
+         <children>
+            <VBox alignment="CENTER" layoutY="-39.2" maxHeight="800.0" maxWidth="450.0" minWidth="250.0" prefHeight="488.0" prefWidth="250.0" spacing="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fitHeight="243.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/AppIcon.png" />
                      </image>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                   </ImageView>
                   <Text lineSpacing="20.0" opacity="0.85" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label-title" text="HOSPIT" textAlignment="CENTER">
                      <font>
@@ -46,6 +78,29 @@
                      <VBox.margin>
                         <Insets top="8.0" />
                      </VBox.margin>
+                     <fill>
+                        <LinearGradient endX="0.0606060443502483" endY="0.109848498394995" startX="0.5037878634351672" startY="0.8712120941191009">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color green="0.03921568766236305" blue="0.003921568859368563" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                   </Text>
                </children>
             </VBox>
@@ -54,35 +109,39 @@
             <Insets />
          </GridPane.margin>
       </AnchorPane>
-      <AnchorPane maxHeight="160.0" maxWidth="500.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: limegreen;" GridPane.rowIndex="2" />
-      <AnchorPane maxHeight="80.0" maxWidth="1.7976931348623157E308" minHeight="60.0" minWidth="650.0" prefHeight="60.0" prefWidth="650.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <AnchorPane maxHeight="160.0" maxWidth="500.0" minHeight="100.0" minWidth="250.0" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #5d9b63;" GridPane.rowIndex="2" />
+      <AnchorPane maxHeight="80.0" maxWidth="1.7976931348623157E308" minHeight="60.0" minWidth="650.0" prefHeight="60.0" prefWidth="650.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
             <StackPane alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="388.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#allerVersLoginView" pickOnBounds="true" preserveRatio="true" styleClass="return" StackPane.alignment="BOTTOM_LEFT">
-                     <image>
-                        <Image url="@../resources/211618_c_left_arrow_icon.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="page-title" text="Creer Compte Patient" StackPane.alignment="CENTER" />
+                  <Text fill="#5d9b63" strokeType="OUTSIDE" strokeWidth="0.0" text="Creer Compte Patient" textAlignment="CENTER" wrappingWidth="651.2334289550781" StackPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Text>
                </children>
             </StackPane>
          </children>
       </AnchorPane>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="390.0" minWidth="650.0" prefHeight="390.0" prefWidth="650.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="390.0" minWidth="650.0" prefHeight="390.0" prefWidth="650.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
          <children>
+            <Label fx:id="label_error_reussi" alignment="CENTER" maxWidth="1.7976931348623157E308" minWidth="650.0" opacity="0.0" prefHeight="18.0" prefWidth="650.0" text="Erreur lors de la création du compte. Veuillez réessayer." textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <padding>
+                  <Insets top="21.0" />
+               </padding>
+            </Label>
             <HBox alignment="CENTER" prefHeight="389.0" prefWidth="759.0" spacing="45.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="30.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <TextField fx:id="nomField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Nom" styleClass="field">
+                        <TextField fx:id="nomField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Nom" style="-fx-prompt-text-fill: #df6c6c;" styleClass="field">
                            <font>
                               <Font size="19.0" />
                            </font></TextField>
-                        <TextField fx:id="prenomField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Prenom" styleClass="field">
+                        <TextField fx:id="prenomField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Prenom" style="-fx-prompt-text-fill: #df6c6c;" styleClass="field">
                            <font>
                               <Font size="19.0" />
                            </font></TextField>
@@ -93,11 +152,11 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" spacing="30.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <TextField fx:id="cnieField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="CNIE" styleClass="field">
+                        <TextField fx:id="cnieField" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="CNIE" style="-fx-prompt-text-fill: #df6c6c;" styleClass="field">
                            <font>
                               <Font size="19.0" />
                            </font></TextField>
-                        <PasswordField fx:id="motDePassField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Mot de Pass" styleClass="field">
+                        <PasswordField fx:id="motDePassField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Mot de Pass" style="-fx-prompt-text-fill: #df6c6c;" styleClass="field">
                            <font>
                               <Font size="19.0" />
                            </font>
@@ -113,9 +172,9 @@
       </AnchorPane>
       <AnchorPane maxHeight="160.0" maxWidth="1.7976931348623157E308" minHeight="100.0" minWidth="650.0" prefHeight="100.0" prefWidth="650.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
          <children>
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="creerButton" mnemonicParsing="false" onAction="#ajouterPatient" prefHeight="41.0" prefWidth="152.0" styleClass="btn" text="Cree Compte" textFill="#3291f0cf">
+                  <Button fx:id="creerButton" mnemonicParsing="false" onAction="#ButtonCree" prefHeight="41.0" prefWidth="152.0" styleClass="btn" text="Cree Compte" textFill="#3291f0cf">
                      <font>
                         <Font name="Yu Gothic UI Semibold" size="12.0" />
                      </font>

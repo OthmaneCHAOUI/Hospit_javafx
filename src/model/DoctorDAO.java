@@ -50,7 +50,7 @@ public class DoctorDAO {
             
             if(rs.next()){
                doctor = new Doctor();
-               doctor.setId(rs.getInt("id")); // Si tu as un champ ID
+               doctor.setId(rs.getInt("id"));
                doctor.setNom(rs.getString("nom"));
                doctor.setPrenom(rs.getString("prenom"));
                doctor.setCnie(rs.getString("cnie"));

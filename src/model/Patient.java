@@ -9,6 +9,11 @@ public class Patient {
 
     public Patient() {}
 
+    public Patient(String cnie, String motDePasse) {
+        this.cnie = cnie;
+        this.motDePasse = motDePasse;
+    }
+
     public Patient(String nom, String prenom, String cnie, String motDePasse) {
         this.nom = nom;
         this.prenom = prenom;

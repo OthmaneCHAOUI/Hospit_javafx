@@ -3,6 +3,10 @@
     -fx-border-color: limegreen;
     -fx-border-width: 0 0 1.5 0;
     -fx-border-radius: 0 0 0 0;
+<<<<<<< HEAD
+=======
+    /* -fx-padding: 6px 6px 6px 12px; */
+>>>>>>> Hospit2/merging
 }
 
 .label {
@@ -13,7 +17,12 @@
 .enregi-button{
     -fx-background-color: limegreen;
     -fx-text-fill: white;
+<<<<<<< HEAD
     -fx-pref-height: 40;
+=======
+    -fx-border-radius: 50px;
+    -fx-pref-height: 50;
+>>>>>>> Hospit2/merging
     -fx-pref-width: 100;
     -fx-cursor: hand;
 }
