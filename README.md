@@ -121,6 +121,7 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
 - Ajout des statistiques
 - La possibilité d'importer des dossiers patients
 - Application mobile ou version web
+- ameliorer la securite : injection SQL, backdoors...
 
 ---
 

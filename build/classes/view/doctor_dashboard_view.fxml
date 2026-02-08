@@ -49,21 +49,6 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="174.0" spacing="5.0" GridPane.columnIndex="2">
-                     <children>
-                        <ImageView fitHeight="35.0" fitWidth="31.0" onMouseClicked="#Parametre" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/326497_account_circle_icon.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets right="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </HBox>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="772.0" GridPane.columnIndex="1">
                      <children>
                         <Text opacity="0.85" strokeType="OUTSIDE" strokeWidth="0.0" text="Bonjour, DR  ">
