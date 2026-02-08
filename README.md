@@ -2,7 +2,7 @@
 
 ## 🎯 Objectif du Projet
 
-Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs patients et les traitements médicaux associés. Les patients peuvent consulter leurs informations médicales de manière sécurisée.
+Cette application permet aux docteurs de gérer les dossiers de leurs patients et les traitements médicaux associés. Les patients peuvent consulter leurs informations médicales de manière.
 
 ---
 
@@ -10,6 +10,7 @@ Cette application JavaFX permet aux docteurs de gérer les dossiers de leurs pat
 
 ### 1. Docteur
 
+- Se connecter à son espace personnel
 - Ajouter, modifier et supprimer des patients
 - Créer, modifier et supprimer des traitements
 - Visualiser l’historique médical des patients
@@ -132,58 +133,70 @@ Encadré par : Mme OUADI Hayat
 
 ## 📦 Structure du Projet
 
-Hospit/
-├── src/
-│   ├── model/                         # Couche Modèle
-│   │   ├── entity/                   # Entités (classes représentant les tables)
-│   │   │   ├── Patient.java
-│   │   │   ├── Doctor.java
-│   │   │   ├── Medicament.java
-│   │   │   ├── RendezVous.java
-│   │   │   └── TestMedical.java
-│   │   │
-│   │   ├── dao/                      # DAO (accès base de données)
-│   │   │   ├── PatientDAO.java
-│   │   │   ├── DoctorDAO.java
-│   │   │   ├── MedicamentDAO.java
-│   │   │   ├── RendezVousDAO.java
-│   │   │   └── TestMedicalDAO.java
-│   │   │
-│   │   └── database/                 # Connexion DB
-│   │       └── Database.java
-│
-│   ├── controller/                   # Contrôleurs (logique interface)
+```shell
+Hospit
+├── README.md
+├── .gitignore
+├── src
+│   ├── controller
+│   │   ├── DoctorDashboardController.java
+│   │   ├── DoctorFormController.java
+│   │   ├── DoctorMTRController.java
 │   │   ├── LoginController.java
-│   │   ├── PatientController.java
-│   │   ├── DoctorController.java
-│   │   ├── MedicamentController.java
-│   │   ├── RendezVousController.java
-│   │   └── TestMedicalController.java
-│
-│   ├── view/                         # Fichiers FXML (vues)
-│   │   ├── login_view.fxml
-│   │   ├── dashboard_view.fxml
-│   │   ├── patient_form.fxml
-│   │   ├── doctor_form.fxml
-│   │   ├── medicament_form.fxml
-│   │   ├── rendezvous_form.fxml
-│   │   └── testmedical_form.fxml
-│
-│   ├── util/                         # Outils utilitaires
-│   │   ├── Validator.java
-│   │   └── PasswordHasher.java
-│   └── Main.java                     # Point d’entrée JavaFX (extends Application)
-
-├── resources/                        # Fichiers externes (style, icônes, etc.)
-│   ├── css/
-│   │   └── style.css
-│   ├── images/
-│   │   └── logo.png
-│   └── data/
-│       └── init.sql                  # Script de création de la base (facultatif)
-
-├── database/                         # SQLite DB ou dossier de backup
-│   └── hospit.db
-
-├── README.md                         # Présentation du projet
-└── .gitignore                        # (facultatif)
+│   │   ├── PatientDashboardController.java
+│   │   └── PatientFormController.java
+│   ├── main
+│   │   └── Main.java
+│   ├── model
+│   │   ├── DBConnection.java
+│   │   ├── DoctorDAO.java
+│   │   ├── Doctor.java
+│   │   ├── DoctorPatientDAO.java
+│   │   ├── DoctorPatient.java
+│   │   ├── MedicamentDAO.java
+│   │   ├── Medicament.java
+│   │   ├── PatientDAO.java
+│   │   ├── Patient.java
+│   │   ├── RendezVousDAO.java
+│   │   ├── RendezVous.java
+│   │   ├── TestMedicalDAO.java
+│   │   └── TestMedical.java
+│   ├── resources
+│   │   ├── 1564491_add_create_new_plus_icon.png
+│   │   ├── 211618_c_left_arrow_icon.png
+│   │   ├── 326497_account_circle_icon.png
+│   │   ├── 3669476_add_circle_ic_icon.png
+│   │   ├── 392505_eye_preview_see_seen_view_icon.png
+│   │   ├── 4829862_arrow_left_icon.png
+│   │   ├── 4829864_arrow_back_left_icon.png
+│   │   ├── 9042444_import_icon.png
+│   │   ├── 9110784_circle_x_icon.png
+│   │   ├── add.png
+│   │   ├── AppIcon.png
+│   │   ├── delete.png
+│   │   ├── edit.png
+│   │   ├── export.png
+│   │   ├── group.png
+│   │   ├── iconmonstr-key-8-48.png
+│   │   ├── info.png
+│   │   ├── search-interface-symbol.png
+│   │   ├── settings.png
+│   │   └── user.png
+│   ├── style
+│   │   ├── connexionStyle.css
+│   │   ├── doctorDashboardStyle.css
+│   │   ├── formDoctor.css
+│   │   ├── formPatient.css
+│   │   └── patientDashboardStyle.css
+│   ├── utils
+│   │   ├── Database4.sql
+│   │   ├── Database5.sql
+│   │   └── Database.sql
+│   └── view
+│       ├── connexion_view.fxml
+│       ├── doctor_dashboard_view.fxml
+│       ├── doctor_form.fxml
+│       ├── DoctorMTR_view.fxml
+│       ├── patient_dashboard_view.fxml
+│       └── patient_form.fxml
+```
